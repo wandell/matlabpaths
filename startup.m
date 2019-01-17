@@ -11,7 +11,7 @@ else
     
     %%
     restoredefaultpath;
-    addpath(fullfile(userpath,'paths'));
+    addpath(fullfile(userpath,'matlabpaths'));
     
     %%  My directories
     %
