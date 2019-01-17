@@ -41,7 +41,7 @@ else
     stAppsDir    = fullfile(userpath,'scitranApps');
     
     % Utilities
-    jsonioDir    = fullfile(userpath,'tools','jsonio');
+    jsonioDir    = fullfile(userpath,'tools','JSONio');
     examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
     unitTestDir  = fullfile(userpath,'tools','UnitTestToolbox');
     rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
