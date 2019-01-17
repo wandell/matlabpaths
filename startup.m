@@ -38,6 +38,7 @@ else
     teachiseDir  = fullfile(userpath,'teach','psych221');
     
     stDir        = fullfile(userpath,'scitran');
+    % sdkDir       = fullfile(userpath,'flywheelsdk','445');
     stAppsDir    = fullfile(userpath,'scitranApps');
     
     % Utilities
@@ -78,7 +79,8 @@ else
     addpath(genpath(examplesDir));
     addpath(genpath(jsonioDir));
     addpath(genpath(stDir));
-    addpath(genpath(fullfile(userpath,'Add-Ons','Toolboxes')));
+    % addpath(genpath(sdkDir)); disp(sdkDir)
+    % addpath(genpath(fullfile(userpath,'Add-Ons','Toolboxes')));
     
     %%
     
