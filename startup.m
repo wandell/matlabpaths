@@ -17,31 +17,41 @@ else
     %
     % Should be using ToolboxToolbox, I know.
     
+    % Maybe these should all be inside of an ISET subdirectory.
     isetcamDir   = fullfile(userpath,'isetcam');
+    isetbioDir   = fullfile(userpath,'isetbio');
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dDir    = fullfile(userpath,'iset3d');
     isetcloudDir = fullfile(userpath,'isetcloud');
     isetL3Dir    = fullfile(userpath,'isetL3');
-    isetbioDir   = fullfile(userpath,'isetbio');
-    
+    iset360Dir   = fullfile(userpath,'iset360');
+    isetautoDir  = fullfile(userpath,'isetauto');
+    isetmosaicsDir        = fullfile(userpath,'isetmosaics');
+    isetmultispectralDir  = fullfile(userpath,'isetmultispectral');
+    isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
+    isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
+
+    % We might want to specify individual sub-directories
     wlDir        = fullfile(userpath,'LABS','WL');
-    % We might want to specify these sub-directories
     % wlTalksDir   = fullfile(userpath,'LABS''WL','WLTalks');
     % wlGaborDir   = fullfile(userpath,'LABS','WL','WLGabor');
     % wlVernierDir = fullfile(userpath,'LABS','WL','WLVernier');
-    % oraleyeDir = fullfile(userpath,'LABS','WL','oraleye');
+    % oraleyeDir   = fullfile(userpath,'LABS','WL','oraleye');
+    % wlDiscriminationNetworkDir = fullfile(userpath,'LABS','WL','wlDiscriminationNetwork');
+    % WLDichromacyAppearanceDir
     
+    % Maybe this should all be inside of the MRI
     vistaDir    = fullfile(userpath,'vistasoft');
     spmDir      = fullfile(userpath,'MRI','spm8');
     
+    % Teach subdirectory
     teachmriDir  = fullfile(userpath,'teach','teachmri');
     teachiseDir  = fullfile(userpath,'teach','psych221');
     
+    % Utilities - Maybe scitran related should be inside of tools
     stDir        = fullfile(userpath,'scitran');
-    % sdkDir       = fullfile(userpath,'flywheelsdk','445');
     stAppsDir    = fullfile(userpath,'scitranApps');
     
-    % Utilities
     jsonioDir    = fullfile(userpath,'tools','JSONio');
     examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
     unitTestDir  = fullfile(userpath,'tools','UnitTestToolbox');
@@ -57,6 +67,7 @@ else
         'ISETCAM-ISETLENS',...
         'ISETCAM-ISET3D-ISETLENS',...
         'ISETCAM-ISET3D-ISETCLOUD',...
+        'ISETCAM-CALIBRATE-WL',...
         'GRAPHICS',...
         'SCIAPPS-VISTA-SPM',...
         'VISTA-TEACH',...
@@ -73,14 +84,12 @@ else
     %% Notify of tools
     
     disp(pathOptions{R})
-    disp('Adding RDT, UTT, Examples, JSONio, Scitran, Add-Ons')
+    disp('Adding RDT, UTT, Examples, JSONio, Scitran')
     addpath(genpath(rdDir));
     addpath(genpath(unitTestDir));
     addpath(genpath(examplesDir));
     addpath(genpath(jsonioDir));
     addpath(genpath(stDir));
-    % addpath(genpath(sdkDir)); disp(sdkDir)
-    % addpath(genpath(fullfile(userpath,'Add-Ons','Toolboxes')));
     
     %%
     
@@ -101,6 +110,11 @@ else
         case 'ISETCAM-WL'
             addpath(genpath(isetcamDir));
             addpath(genpath(wlDir));
+            chdir(isetcamDir);
+        case 'ISETCAM-CALIBRATE-WL'
+            addpath(genpath(isetcamDir));
+            addpath(genpath(wlDir));
+            addpath(genpath(isetcalibrateDir));
             chdir(isetcamDir);
         case 'ISETCAM-ISET3D'
             addpath(genpath(isetcamDir));
