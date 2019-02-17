@@ -6,9 +6,11 @@ if isdeployed
     % Do nothing
 else
     %%
-    set(0,'DefaultAxesFontsize',16)
-    set(0,'DefaultAxesFontName','Georgia')
-    
+    set(groot,'DefaultAxesFontsize',16)
+    set(groot,'DefaultAxesFontName','Georgia')
+    co = [1 0 0; 0 1 0 ; 0 0 1; 1 0 1; 0 1 1; 0 0 0];
+    set(groot,'defaultAxesColorOrder',co)
+
     %%
     restoredefaultpath;
     addpath(fullfile(userpath,'matlabpaths'));
