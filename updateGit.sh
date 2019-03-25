@@ -116,13 +116,22 @@ cd ~/Documents/MATLAB/LABS/WL/jedeye
 pwd
 git pull
 
-# cd ~/Documents/MATLAB/LABS/BL/IBIOColorDetect
-# pwd
-# git pull
+cd ~/Documents/MATLAB/LABS/WL/oraleye
+pwd
+git pull
+
+cd ~/Documents/MATLAB/LABS/WL/arriscope
+pwd
+git pull
+
 
 cd ~/Documents/MATLAB/LABS/WL/oraleye
 pwd
 git pull
+
+# cd ~/Documents/MATLAB/LABS/BL/IBIOColorDetect
+# pwd
+# git pull
 
 # Publications
 echo "*********"
@@ -131,7 +140,6 @@ echo "*********"
 # cd ~/Documents/MATLAB/papers/IBIOColorDetect_CSFpaper
 # pwd
 # git pull
-
 
 #MRI
 echo "*********"
@@ -161,7 +169,7 @@ cd ~/Documents/MATLAB/scitran/scitran.wiki
 pwd
 git pull
 
-cd ~/Documents/MATLAB/scitranApps/dti-error
+cd ~/Documents/MATLAB/scitranApps/dtiError
 pwd
 git pull
 
@@ -172,8 +180,6 @@ git pull
 cd ~/Documents/MATLAB/scitranApps/ecogBasicCode
 pwd
 git pull
-
-
 
 echo "Done"
 #
