@@ -44,7 +44,9 @@ else
     
     % Maybe this should all be inside of the MRI
     vistaDir    = fullfile(userpath,'vistasoft');
+    PRFmodel    = fullfile(userpath,'MRI','PRFmodel');
     spmDir      = fullfile(userpath,'MRI','spm8');
+    knkDir      = fullfile(userpath,'MRI','knkutils');
     
     % Teach subdirectory
     teachmriDir  = fullfile(userpath,'teach','teachmri');
@@ -72,6 +74,7 @@ else
         'ISETCAM-CALIBRATE-WL',...
         'GRAPHICS',...
         'SCIAPPS-VISTA-SPM',...
+        'PRFmodel-VISTA-SPM-KNK',...
         'VISTA-TEACH',...
         'TEACHMRI',...
         'None'};
@@ -149,6 +152,14 @@ else
             addpath(genpath(stAppsDir));
             addpath(genpath(vistaDir));  % Make sure this is last
             chdir(vistaDir);
+            
+        case 'PRFmodel-VISTA-SPM-KNK'
+            % Scitran and Vistasoft
+            addpath(genpath(spmDir));
+            addpath(genpath(knkDir));
+            addpath(genpath(PRFmodel));
+            addpath(genpath(vistaDir));  % Make sure this is last
+            chdir(PRFmodel);
             
         case 'VISTA-TEACH'
             % Scitran and Vistasoft
