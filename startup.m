@@ -60,6 +60,7 @@ else
     examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
     unitTestDir  = fullfile(userpath,'tools','UnitTestToolbox');
     rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
+    psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
     
     %%
     fprintf('***Path selection****\n');
@@ -69,12 +70,14 @@ else
         'ISETCAM-WL', ...
         'ISETCAM-ISET3D',...
         'ISETCAM-ISETLENS',...
+        'ISETCAM-ISETFLUOR',...
         'ISETCAM-ISET3D-ISETLENS',...
         'ISETCAM-ISET3D-ISETCLOUD',...
         'ISETCAM-CALIBRATE-WL',...
         'GRAPHICS',...
         'SCIAPPS-VISTA-SPM',...
-        'PRFmodel-VISTA-SPM-KNK',...
+        'PRFmodel-VISTA-SPM-KNK-PTB',...
+        'PRFmodel-VISTA-SPM', ...
         'VISTA-TEACH',...
         'TEACHMRI',...
         'None'};
@@ -139,6 +142,10 @@ else
             addpath(genpath(isetcamDir));
             addpath(genpath(isetlensDir));
             chdir(isetlensDir);
+        case 'ISETCAM-ISETFLUOR'
+            addpath(genpath(isetcamDir));
+            addpath(genpath(isetfluorescenceDir));
+            chdir(isetfluorescenceDir);
             
         case 'GRAPHICS'
             % Experiments with graphics and Flywheel
@@ -153,10 +160,18 @@ else
             addpath(genpath(vistaDir));  % Make sure this is last
             chdir(vistaDir);
             
-        case 'PRFmodel-VISTA-SPM-KNK'
+        case 'PRFmodel-VISTA-SPM-KNK-PTB'
             % Scitran and Vistasoft
             addpath(genpath(spmDir));
             addpath(genpath(knkDir));
+            addpath(genpath(psychtoolboxDir));
+            addpath(genpath(PRFmodel));
+            addpath(genpath(vistaDir));  % Make sure this is last
+            chdir(PRFmodel);
+            
+        case 'PRFmodel-VISTA-SPM'
+            % Scitran and Vistasoft
+            addpath(genpath(spmDir));
             addpath(genpath(PRFmodel));
             addpath(genpath(vistaDir));  % Make sure this is last
             chdir(PRFmodel);
