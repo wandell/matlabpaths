@@ -150,7 +150,7 @@ cd ~/Documents/MATLAB/vistasoft
 pwd
 git pull
 
-cd ~/Documents/MATLAB/vistasoft/wiki
+cd ~/Documents/MATLAB/vistasoft/vistasoft.wiki
 pwd
 git pull
 
