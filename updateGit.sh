@@ -158,6 +158,10 @@ cd ~/Documents/MATLAB/MRI/life
 pwd
 git pull
 
+cd ~/Documents/MATLAB/MRI/PRFmodel
+pwd
+git pull
+
 # Scitran
 echo "Scitran"
 
