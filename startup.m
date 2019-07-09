@@ -32,6 +32,7 @@ else
     isetmultispectralDir  = fullfile(userpath,'isetmultispectral');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
     isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
+    isetflywheelDir   = fullfile(userpath,'isetflywheel');
 
     % We might want to specify individual sub-directories
     wlDir        = fullfile(userpath,'LABS','WL');
@@ -66,9 +67,11 @@ else
     fprintf('***Path selection****\n');
     pathOptions = {'ISETBIO-ISET3D',...
         'ISETBIO-WL', ...
+        'ISETBIO-WL-FLY',...
         'ISETCAM-TEACH',...
         'ISETCAM-WL', ...
         'ISETCAM-ISET3D',...
+        'ISETCAM-ISET3D-FLY',...
         'ISETCAM-ISETLENS',...
         'ISETCAM-ISETFLUOR',...
         'ISETCAM-ISET3D-ISETLENS',...
@@ -111,6 +114,11 @@ else
             addpath(genpath(isetbioDir));
             addpath(genpath(wlDir));
             chdir(isetbioDir);
+        case 'ISETBIO-WL-FLY'
+            addpath(genpath(isetbioDir));
+            addpath(genpath(wlDir));
+            addpath(genpath(isetflywheelDir));
+            chdir(isetbioDir);
         case 'ISETCAM-TEACH'
             addpath(genpath(isetcamDir));
             addpath(genpath(teachiseDir));
@@ -118,6 +126,11 @@ else
         case 'ISETCAM-WL'
             addpath(genpath(isetcamDir));
             addpath(genpath(wlDir));
+            chdir(isetcamDir);
+        case 'ISETCAM-ISET3D-FLY'
+            addpath(genpath(isetcamDir));
+            addpath(genpath(wlDir));
+            addpath(genpath(isetflywheelDir));
             chdir(isetcamDir);
         case 'ISETCAM-CALIBRATE-WL'
             addpath(genpath(isetcamDir));
@@ -201,9 +214,11 @@ else
     fprintf('Current directory: %s\n',pwd)
     %% Clear variables
     
-    clear R isetcamDir isetbioDir wlDir rtbDir piDir
-    clear unitTestDir rdDir s3dDir
-    clear vistaDir spmDir teachmriDir
+    clear R isetcamDir isetbioDir wlDir rtbDir piDir iset360Dir iset3dDir
+    clear isetL3Dir isetautoDir isetcalibrateDir isetcloudDir isetfluorescenceDir
+    clear isetflywheelDir isetlensDir isetmosaicsDir isetmultispectralDir
+    clear unitTestDir rdDir s3dDir psychtoolboxDir teachiseDir
+    clear vistaDir spmDir teachmriDir knkDir examplesDir
     clear wlDir wlGaborDir wlTalksDir
     clear stDir stAppsDir jsonioDir wltalksDir curDir ii pathOptions c
 end
