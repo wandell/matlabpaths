@@ -8,7 +8,7 @@ else
     %%
     set(groot,'DefaultAxesFontsize',16)
     set(groot,'DefaultAxesFontName','Georgia')
-    co = [1 0 0; 0 1 0 ; 0 0 1; 1 0 1; 0 1 1; 0 0 0; 1 1 1];
+    co = [1 0 0; 0 1 0 ; 0 0 1; 1 0 1; 0 1 1; 0 0 0];
     set(groot,'defaultAxesColorOrder',co)
 
     %%
@@ -25,23 +25,27 @@ else
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dDir    = fullfile(userpath,'iset3d');
     isetcloudDir = fullfile(userpath,'isetcloud');
+    isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
+    isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
+    isetflywheelDir   = fullfile(userpath,'isetflywheel');
+    %{
     isetL3Dir    = fullfile(userpath,'isetL3');
     iset360Dir   = fullfile(userpath,'iset360');
     isetautoDir  = fullfile(userpath,'isetauto');
     isetmosaicsDir        = fullfile(userpath,'isetmosaics');
     isetmultispectralDir  = fullfile(userpath,'isetmultispectral');
-    isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
-    isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
-    isetflywheelDir   = fullfile(userpath,'isetflywheel');
-
+    %}
+    
     % We might want to specify individual sub-directories
     wlDir        = fullfile(userpath,'LABS','WL');
-    % wlTalksDir   = fullfile(userpath,'LABS''WL','WLTalks');
-    % wlGaborDir   = fullfile(userpath,'LABS','WL','WLGabor');
-    % wlVernierDir = fullfile(userpath,'LABS','WL','WLVernier');
-    % oraleyeDir   = fullfile(userpath,'LABS','WL','oraleye');
-    % wlDiscriminationNetworkDir = fullfile(userpath,'LABS','WL','wlDiscriminationNetwork');
-    % WLDichromacyAppearanceDir
+    %{
+     wlTalksDir   = fullfile(userpath,'LABS''WL','WLTalks');
+     wlGaborDir   = fullfile(userpath,'LABS','WL','WLGabor');
+     wlVernierDir = fullfile(userpath,'LABS','WL','WLVernier');
+     oraleyeDir   = fullfile(userpath,'LABS','WL','oraleye');
+     wlDiscriminationNetworkDir = fullfile(userpath,'LABS','WL','wlDiscriminationNetwork');
+     WLDichromacyAppearanceDir
+    %}
     
     % Maybe this should all be inside of the MRI
     vistaDir    = fullfile(userpath,'vistasoft');
