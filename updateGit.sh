@@ -33,6 +33,10 @@ cd ~/Documents/MATLAB/isetfluorescence
 pwd
 git pull
 
+cd ~/Documents/MATLAB/isetflywheel
+pwd
+git pull
+
 cd ~/Documents/MATLAB/isetbio/isetbio.wiki
 pwd
 git pull
