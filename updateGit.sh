@@ -25,6 +25,10 @@ cd ~/Documents/MATLAB/isetbio
 pwd
 git pull
 
+cd ~/Documents/MATLAB/isetbiolivescript
+pwd
+git pull
+
 cd ~/Documents/MATLAB/isetfluorescence
 pwd
 git pull

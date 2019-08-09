@@ -22,6 +22,7 @@ else
     % Maybe these should all be inside of an ISET subdirectory.
     isetcamDir   = fullfile(userpath,'isetcam');
     isetbioDir   = fullfile(userpath,'isetbio');
+    isetbiolivescriptDir   = fullfile(userpath,'isetbiolivescript');
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dDir    = fullfile(userpath,'iset3d');
     isetcloudDir = fullfile(userpath,'isetcloud');
@@ -72,6 +73,7 @@ else
     pathOptions = {'ISETBIO-ISET3D',...
         'ISETBIO-WL', ...
         'ISETBIO-WL-FLY',...
+        'ISETBIO-LIVESCRIPT',...
         'ISETCAM-TEACH',...
         'ISETCAM-WL', ...
         'ISETCAM-ISET3D',...
@@ -122,6 +124,10 @@ else
             addpath(genpath(isetbioDir));
             addpath(genpath(wlDir));
             addpath(genpath(isetflywheelDir));
+            chdir(isetbioDir);
+        case 'ISETBIO-LIVESCRIPT'
+            addpath(genpath(isetbioDir));
+            addpath(genpath(isetbiolivescriptDir));
             chdir(isetbioDir);
         case 'ISETCAM-TEACH'
             addpath(genpath(isetcamDir));
@@ -218,7 +224,8 @@ else
     fprintf('Current directory: %s\n',pwd)
     %% Clear variables
     
-    clear R isetcamDir isetbioDir wlDir rtbDir piDir iset360Dir iset3dDir
+    clear isetbioDir isetbiolivescriptDir
+    clear R isetcamDir wlDir rtbDir piDir iset360Dir iset3dDir
     clear isetL3Dir isetautoDir isetcalibrateDir isetcloudDir isetfluorescenceDir
     clear isetflywheelDir isetlensDir isetmosaicsDir isetmultispectralDir
     clear unitTestDir rdDir s3dDir psychtoolboxDir teachiseDir
