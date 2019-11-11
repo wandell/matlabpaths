@@ -72,8 +72,7 @@ else
     fprintf('***Path selection****\n');
     pathOptions = {'ISETBIO-ISET3D',...
         'ISETBIO-WL', ...
-        'ISETBIO-WL-FLY',...
-        'ISETBIO-LIVESCRIPT',...
+        'ISETBIO-TEACH',...
         'ISETCAM-TEACH',...
         'ISETCAM-WL', ...
         'ISETCAM-ISET3D',...
@@ -111,7 +110,7 @@ else
     %%
     
     switch pathOptions{R}
-        
+                %  ISETBio
         case 'ISETBIO-ISET3D'
             addpath(genpath(isetbioDir));
             addpath(genpath(iset3dDir));
@@ -121,14 +120,21 @@ else
             addpath(genpath(wlDir));
             chdir(isetbioDir);
         case 'ISETBIO-WL-FLY'
+            % Putting pre-computed data into Flywheel
             addpath(genpath(isetbioDir));
             addpath(genpath(wlDir));
             addpath(genpath(isetflywheelDir));
+            chdir(isetbioDir);
+        case 'ISETBIO-TEACH'
+            addpath(genpath(isetbioDir));
+            addpath(genpath(teachiseDir));
             chdir(isetbioDir);
         case 'ISETBIO-LIVESCRIPT'
             addpath(genpath(isetbioDir));
             addpath(genpath(isetbiolivescriptDir));
             chdir(isetbioDir);
+            
+            %  ISETCam
         case 'ISETCAM-TEACH'
             addpath(genpath(isetcamDir));
             addpath(genpath(teachiseDir));
