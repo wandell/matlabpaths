@@ -45,6 +45,18 @@ cd ~/Documents/MATLAB/isetcalibrate
 pwd
 git pull
 
+cd ~/Documents/MATLAB/isetbiolivescript
+pwd
+git pull
+
+cd ~/Documents/MATLAB/isetbiolivescript/isetbiolivescript.wiki
+pwd
+git pull
+
+cd ~/Documents/MATLAB/isetcalibrate
+pwd
+git pull
+
 cd ~/Documents/MATLAB/isetauto
 pwd
 git pull

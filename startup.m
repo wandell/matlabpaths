@@ -143,9 +143,18 @@ else
             addpath(genpath(isetcamDir));
             addpath(genpath(wlDir));
             chdir(isetcamDir);
+        case 'ISETCAM-ISET3D'
+            addpath(genpath(isetcamDir));
+            addpath(genpath(iset3dDir));
+            chdir(iset3dDir);
+        case 'ISETCAM-ISET3D-CLOUD'
+            addpath(genpath(isetcamDir));
+            addpath(genpath(iset3dDir));
+            addpath(genpath(isetcloudDir));
+            chdir(isetcamDir);
         case 'ISETCAM-ISET3D-FLY'
             addpath(genpath(isetcamDir));
-            addpath(genpath(wlDir));
+            addpath(genpath(iset3dDir));
             addpath(genpath(isetflywheelDir));
             chdir(isetcamDir);
         case 'ISETCAM-CALIBRATE-WL'
@@ -153,10 +162,6 @@ else
             addpath(genpath(wlDir));
             addpath(genpath(isetcalibrateDir));
             chdir(isetcamDir);
-        case 'ISETCAM-ISET3D'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dDir));
-            chdir(iset3dDir);
         case 'ISETCAM-ISET3D-ISETLENS'
             addpath(genpath(isetcamDir));
             addpath(genpath(isetlensDir));
