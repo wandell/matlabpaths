@@ -28,22 +28,22 @@ else
     isetcloudDir = fullfile(userpath,'isetcloud');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
     isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
-    isetflywheelDir   = fullfile(userpath,'isetflywheel');
     %{
     isetL3Dir    = fullfile(userpath,'isetL3');
     iset360Dir   = fullfile(userpath,'iset360');
     isetautoDir  = fullfile(userpath,'isetauto');
     isetmosaicsDir        = fullfile(userpath,'isetmosaics');
     isetmultispectralDir  = fullfile(userpath,'isetmultispectral');
+    isetflywheelDir   = fullfile(userpath,'isetflywheel');
     %}
     
     % We might want to specify individual sub-directories
     wlDir        = fullfile(userpath,'LABS','WL');
+    oraleyeDir   = fullfile(userpath,'LABS','WL','oraleye');
     %{
      wlTalksDir   = fullfile(userpath,'LABS''WL','WLTalks');
      wlGaborDir   = fullfile(userpath,'LABS','WL','WLGabor');
      wlVernierDir = fullfile(userpath,'LABS','WL','WLVernier');
-     oraleyeDir   = fullfile(userpath,'LABS','WL','oraleye');
      wlDiscriminationNetworkDir = fullfile(userpath,'LABS','WL','wlDiscriminationNetwork');
      WLDichromacyAppearanceDir
     %}
@@ -76,8 +76,8 @@ else
         'ISETCAM-TEACH',...
         'ISETCAM-WL', ...
         'ISETCAM-ISET3D',...
+        'ISETCAM-ISETFLUOR-OE',...
         'ISETCAM-ISETLENS',...
-        'ISETCAM-ISETFLUOR',...
         'ISETCAM-ISET3D-ISETLENS',...
         'ISETCAM-ISET3D-ISETCLOUD',...
         'ISETCAM-CALIBRATE-WL',...
@@ -178,6 +178,11 @@ else
         case 'ISETCAM-ISETFLUOR'
             addpath(genpath(isetcamDir));
             addpath(genpath(isetfluorescenceDir));
+            chdir(isetfluorescenceDir);
+        case 'ISETCAM-ISETFLUOR-OE'
+            addpath(genpath(isetcamDir));
+            addpath(genpath(isetfluorescenceDir));
+            addpath(genpath(oraleyeDir));
             chdir(isetfluorescenceDir);
             
         case 'GRAPHICS'
