@@ -40,6 +40,8 @@ else
     % We might want to specify individual sub-directories
     wlDir        = fullfile(userpath,'LABS','WL');
     oraleyeDir   = fullfile(userpath,'LABS','WL','oraleye');
+    cniDir       = fullfile(userpath,'LABS','CNI');
+
     %{
      wlTalksDir   = fullfile(userpath,'LABS''WL','WLTalks');
      wlGaborDir   = fullfile(userpath,'LABS','WL','WLGabor');
@@ -62,6 +64,7 @@ else
     stDir        = fullfile(userpath,'scitran');
     stAppsDir    = fullfile(userpath,'scitranApps');
     
+    %% CNI related
     jsonioDir    = fullfile(userpath,'tools','JSONio');
     examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
     unitTestDir  = fullfile(userpath,'tools','UnitTestToolbox');
@@ -79,12 +82,11 @@ else
         'ISETCAM-ISETFLUOR-OE',...
         'ISETCAM-ISETLENS',...
         'ISETCAM-ISET3D-ISETLENS',...
-        'ISETCAM-ISET3D-ISETCLOUD',...
+        'ISETCAM-ISET3D-ISETFLUOR',...
         'ISETCAM-CALIBRATE-WL',...
-        'GRAPHICS',...
-        'SCIAPPS-VISTA-SPM',...
-        'PRFmodel-VISTA-SPM-KNK-PTB',...
-        'PRFmodel-VISTA-SPM', ...
+        'VISTA-CNI',...
+        'VISTA-PRFmodel-SPM', ...
+        'VISTA-PRFmodel-SPM-KNK-PTB',...
         'VISTA-TEACH',...
         'TEACHMRI',...
         'None'};
@@ -109,7 +111,7 @@ else
     %%
     
     switch pathOptions{R}
-                %  ISETBio
+        %  ISETBio
         case 'ISETBIO-ISET3D'
             addpath(genpath(isetbioDir));
             addpath(genpath(iset3dDir));
@@ -146,11 +148,6 @@ else
             addpath(genpath(isetcamDir));
             addpath(genpath(iset3dDir));
             chdir(iset3dDir);
-        case 'ISETCAM-ISET3D-CLOUD'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dDir));
-            addpath(genpath(isetcloudDir));
-            chdir(isetcamDir);
         case 'ISETCAM-ISET3D-FLY'
             addpath(genpath(isetcamDir));
             addpath(genpath(iset3dDir));
@@ -164,6 +161,11 @@ else
         case 'ISETCAM-ISET3D-ISETLENS'
             addpath(genpath(isetcamDir));
             addpath(genpath(isetlensDir));
+            addpath(genpath(iset3dDir));
+            chdir(isetcamDir);
+        case 'ISETCAM-ISET3D-ISETFLUOR'
+            addpath(genpath(isetcamDir));
+            addpath(genpath(isetfluorescenceDir));
             addpath(genpath(iset3dDir));
             chdir(isetcamDir);
         case 'ISETCAM-ISET3D-ISETCLOUD'
@@ -198,7 +200,7 @@ else
             addpath(genpath(vistaDir));  % Make sure this is last
             chdir(vistaDir);
             
-        case 'PRFmodel-VISTA-SPM-KNK-PTB'
+        case 'VISTA-SPM-PRFmodel-KNK-PTB'
             % Scitran and Vistasoft
             addpath(genpath(spmDir));
             addpath(genpath(knkDir));
@@ -207,13 +209,19 @@ else
             addpath(genpath(vistaDir));  % Make sure this is last
             chdir(PRFmodel);
             
-        case 'PRFmodel-VISTA-SPM'
+        case 'VISTA-PRFmodel-SPM'
             % Scitran and Vistasoft
             addpath(genpath(spmDir));
             addpath(genpath(PRFmodel));
             addpath(genpath(vistaDir));  % Make sure this is last
             chdir(PRFmodel);
             
+        case 'VISTA-CNI'
+            % CNI TSNR calculations.  Threw in Vista just in case.
+            addpath(genpath(vistaDir));
+            addpath(genpath(cniDir));
+            chdir(cniDir);
+
         case 'VISTA-TEACH'
             % Scitran and Vistasoft
             addpath(genpath(spmDir));
