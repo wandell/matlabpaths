@@ -29,6 +29,7 @@ else
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
     isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
+    isetgDir              = fullfile(userpath,'isetg');
     
     %{
     isetL3Dir    = fullfile(userpath,'isetL3');
@@ -87,6 +88,7 @@ else
         'ISETCAM-ISET3D-ISETFLUOR',...
         'ISETCAM-CALIBRATE-WL',...
         'ISETCAM-HYPERSPECTRAL',...
+        'ISETCAM-ISETG',...
         'VISTA-CNI',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-PRFmodel-SPM-KNK-PTB',...
@@ -193,7 +195,11 @@ else
             addpath(genpath(isetcamDir));
             addpath(genpath(isethyperspectral));
             chdir(isethyperspectral);
-
+        case 'ISETCAM-ISETG'
+            addpath(genpath(isetcamDir));
+            addpath(genpath(isetgDir));
+            chdir(isetgDir);
+            
         case 'GRAPHICS'
             % Experiments with graphics and Flywheel
             addpath(genpath(iset3dDir));
