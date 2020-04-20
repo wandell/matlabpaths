@@ -13,11 +13,15 @@ cd ~/Documents/MATLAB/isetcam
 pwd
 git pull
 
+cd ~/Documents/MATLAB/isetcam/isetcam.wiki
+pwd
+git pull
+
 cd ~/Documents/MATLAB/iset3d
 pwd
 git pull
 
-cd ~/Documents/MATLAB/isetcam/isetcam.wiki
+cd ~/Documents/MATLAB/isetg
 pwd
 git pull
 
