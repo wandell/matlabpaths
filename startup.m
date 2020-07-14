@@ -12,7 +12,7 @@ else
     set(groot,'defaultAxesColorOrder',co)
 
     %%
-    restoredefaultpath;
+    restoredefaultpath; savepath;
     addpath(fullfile(userpath,'matlabpaths'));
     
     %%  My directories
@@ -30,6 +30,7 @@ else
     isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
     isetgDir              = fullfile(userpath,'isetg');
+    isetverseDir          = fullfile(userpath,'isetverse');
     
     %{
     isetL3Dir    = fullfile(userpath,'isetL3');
@@ -90,6 +91,7 @@ else
         'ISETCAM-CALIBRATE-WL',...
         'ISETCAM-HYPERSPECTRAL',...
         'ISETCAM-ISETG',...
+        'ISETCAM-ISET3D-ISETVERSE',...
         'VISTA-CNI',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-PRFmodel-SPM-KNK-PTB',...
@@ -200,6 +202,11 @@ else
             addpath(genpath(isetcamDir));
             addpath(genpath(isetgDir));
             chdir(isetgDir);
+        case 'ISETCAM-ISET3D-ISETVERSE'
+            addpath(genpath(isetcamDir));
+            addpath(genpath(iset3dDir));
+            addpath(genpath(isetverseDir));
+            chdir(isetverseDir);
             
         case 'GRAPHICS'
             % Experiments with graphics and Flywheel
