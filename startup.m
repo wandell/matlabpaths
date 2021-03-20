@@ -72,9 +72,9 @@ else
     
     %% CNI related
     jsonioDir    = fullfile(userpath,'tools','JSONio');
-    examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
+    % examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
     unitTestDir  = fullfile(userpath,'tools','UnitTestToolbox');
-    rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
+    % rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
     psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
     
     %%
@@ -111,10 +111,10 @@ else
     %% Notify of tools
     
     disp(pathOptions{R})
-    disp('Adding UTT, Examples, JSONio, Scitran')
-    addpath(genpath(rdDir));
+    disp('Adding UTT, JSONio, Scitran')
+    % addpath(genpath(rdDir));
     addpath(genpath(unitTestDir));
-    addpath(genpath(examplesDir));
+    % addpath(genpath(examplesDir));
     addpath(genpath(jsonioDir));
     addpath(genpath(stDir));
     
