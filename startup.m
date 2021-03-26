@@ -24,6 +24,8 @@ else
     % Maybe these should all be inside of an ISET subdirectory.
     isetcamDir   = fullfile(userpath,'isetcam');
     isetbioDir   = fullfile(userpath,'isetbio');
+    isetbioCSFDir   = fullfile(userpath,'isetbiocsf');
+
     isetbiolivescriptDir   = fullfile(userpath,'isetbiolivescript');
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dDir    = fullfile(userpath,'iset3d');
@@ -128,17 +130,20 @@ else
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dDir));
-            chdir(iset3dDir);
+            addpath(genpath(isetbioCSFDir));
+            chdir(isetbioDir);
         case 'ISETBIO-WL'
             addpath(genpath(isetbioDir));
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(wlDir));
+            addpath(genpath(isetbioCSFDir));
             chdir(isetbioDir);
         case 'ISETBIO-WL-FLY'
             % Putting pre-computed data into Flywheel
             addpath(genpath(isetbioDir));
+            addpath(genpath(isetbioCSFDir));
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
@@ -151,6 +156,7 @@ else
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(teachiseDir));
+            addpath(genpath(isetbioCSFDir));
             chdir(isetbioDir);
         case 'ISETBIO-LIVESCRIPT'
             addpath(genpath(isetbioDir));
