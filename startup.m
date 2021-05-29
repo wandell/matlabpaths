@@ -35,7 +35,7 @@ else
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
     isetgDir              = fullfile(userpath,'isetg');
     isetverseDir          = fullfile(userpath,'isetverse');
-    
+    mquestplus            = fullfile(userpath,'mQUESTPlus');
     %{
     isetL3Dir    = fullfile(userpath,'isetL3');
     iset360Dir   = fullfile(userpath,'iset360');
@@ -63,6 +63,7 @@ else
     PRFmodel    = fullfile(userpath,'MRI','PRFmodel');
     spmDir      = fullfile(userpath,'MRI','spm8');
     knkDir      = fullfile(userpath,'MRI','knkutils');
+    ophDIR    = fullfile(userpath,'scitranApps','ophthalmology');
     
     % Teach subdirectory
     teachmriDir  = fullfile(userpath,'teach','teachmri');
@@ -96,7 +97,7 @@ else
         'ISETCAM-HYPERSPECTRAL',...
         'ISETCAM-ISETG',...
         'ISETCAM-ISET3D-ISETVERSE',...
-        'VISTA-CNI',...
+        'VISTA-OPH',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-PRFmodel-SPM-KNK-PTB',...
         'VISTA-TEACH',...
@@ -131,6 +132,7 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dDir));
             addpath(genpath(isetbioCSFDir));
+            addpath(genpath(mquestplus));
             chdir(isetbioDir);
         case 'ISETBIO-WL'
             addpath(genpath(isetbioDir));
@@ -139,6 +141,7 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(wlDir));
             addpath(genpath(isetbioCSFDir));
+            addpath(genpath(mquestplus));
             chdir(isetbioDir);
         case 'ISETBIO-WL-FLY'
             % Putting pre-computed data into Flywheel
@@ -148,6 +151,8 @@ else
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(wlDir));
+            addpath(genpath(mquestplus));
+
             addpath(genpath(isetflywheelDir));
             chdir(isetbioDir);
         case 'ISETBIO-TEACH'
@@ -157,6 +162,7 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(teachiseDir));
             addpath(genpath(isetbioCSFDir));
+            addpath(genpath(mquestplus));
             chdir(isetbioDir);
         case 'ISETBIO-LIVESCRIPT'
             addpath(genpath(isetbioDir));
@@ -164,6 +170,7 @@ else
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(isetbiolivescriptDir));
+            addpath(genpath(mquestplus));
             chdir(isetbioDir);
             
             %  ISETCam
@@ -318,6 +325,11 @@ else
             addpath(genpath(vistaDir));
             addpath(genpath(cniDir));
             chdir(cniDir);
+            
+        case 'VISTA-OPH'
+            addpath(genpath(vistaDir));
+            addpath(genpath(ophDIR));
+            chdir(ophDIR);
             
         case 'VISTA-TEACH'
             % Scitran and Vistasoft
