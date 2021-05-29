@@ -12,7 +12,7 @@ else
     set(groot,'defaultAxesColorOrder',co)
     
     %%
-    % restoredefaultpath; savepath;
+    restoredefaultpath; savepath;
     % addpath(fullfile(userpath,'SupportPackages','R2020a'));
     
     addpath(fullfile(userpath,'matlabpaths'));
