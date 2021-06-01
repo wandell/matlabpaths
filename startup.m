@@ -34,15 +34,15 @@ else
     isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
     isetgDir              = fullfile(userpath,'isetg');
-    isetverseDir          = fullfile(userpath,'isetverse');
+    isetautoDir           = fullfile(userpath,'isetauto');
     mquestplus            = fullfile(userpath,'mQUESTPlus');
     %{
     isetL3Dir    = fullfile(userpath,'isetL3');
     iset360Dir   = fullfile(userpath,'iset360');
-    isetautoDir  = fullfile(userpath,'isetauto');
     isetmosaicsDir        = fullfile(userpath,'isetmosaics');
     isetmultispectralDir  = fullfile(userpath,'isetmultispectral');
     isetflywheelDir   = fullfile(userpath,'isetflywheel');
+    isetverseDir          = fullfile(userpath,'isetverse');
     %}
     
     % We might want to specify individual sub-directories
@@ -64,6 +64,7 @@ else
     spmDir      = fullfile(userpath,'MRI','spm8');
     knkDir      = fullfile(userpath,'MRI','knkutils');
     ophDIR    = fullfile(userpath,'scitranApps','ophthalmology');
+    vlfeatDir = fullfile(userpath,'external','vlfeat-0.9.21');  % A binary download
     
     % Teach subdirectory
     teachmriDir  = fullfile(userpath,'teach','teachmri');
@@ -89,14 +90,13 @@ else
         'ISETCAM-ISETCAL', ...
         'ISETCAM-ISET3D',...
         'ISETCAM-ISET3D-ISETCLOUD',...
-        'ISETCAM-ISETFLUOR-OE',...
-        'ISETCAM-ISETLENS',...
         'ISETCAM-ISET3D-ISETLENS',...
         'ISETCAM-ISET3D-ISETFLUOR',...
+        'ISETCAM-ISET3D-ISETAUTO',...
+        'ISETCAM-ISETFLUOR-OE',...
+        'ISETCAM-ISETLENS',...
         'ISETCAM-TEACH-ISETCAL',...
         'ISETCAM-HYPERSPECTRAL',...
-        'ISETCAM-ISETG',...
-        'ISETCAM-ISET3D-ISETVERSE',...
         'VISTA-OPH',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-PRFmodel-SPM-KNK-PTB',...
@@ -235,6 +235,14 @@ else
             addpath(genpath(isetfluorescenceDir));
             addpath(genpath(iset3dDir));
             chdir(isetcamDir);
+        case 'ISETCAM-ISET3D-ISETAUTO'
+            addpath(genpath(isetcamDir));
+            warning('off','MATLAB:rmpath:DirNotFound');
+            rmpath(genpath(isetbioDir));
+            warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(iset3dDir));
+            addpath(genpath(isetautoDir));
+            chdir(isetautoDir);
         case 'ISETCAM-ISET3D-ISETCLOUD'
             addpath(genpath(isetcamDir));
             warning('off','MATLAB:rmpath:DirNotFound');
@@ -278,7 +286,7 @@ else
             rmpath(genpath(isetbioDir));
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(isetgDir));
-            chdir(isetgDir);
+            chdir(isetgDir);            
         case 'ISETCAM-ISET3D-ISETVERSE'
             addpath(genpath(isetcamDir));
             warning('off','MATLAB:rmpath:DirNotFound');
@@ -329,6 +337,7 @@ else
         case 'VISTA-OPH'
             addpath(genpath(vistaDir));
             addpath(genpath(ophDIR));
+            addpath(genpath(vlfeatDir));
             chdir(ophDIR);
             
         case 'VISTA-TEACH'
