@@ -61,10 +61,12 @@ else
     % Maybe this should all be inside of the MRI
     vistaDir    = fullfile(userpath,'vistasoft');
     PRFmodel    = fullfile(userpath,'MRI','PRFmodel');
+    BrainBDir   = fullfile(userpath,'MRI','BrainBeat');
+
     spmDir      = fullfile(userpath,'MRI','spm8');
     knkDir      = fullfile(userpath,'MRI','knkutils');
     ophDIR    = fullfile(userpath,'scitranApps','ophthalmology');
-    vlfeatDir = fullfile(userpath,'external','vlfeat-0.9.21');  % A binary download
+    vlfeatDir = fullfile(userpath,'external','ophvlfeat');  % A binary download
     
     % Teach subdirectory
     teachmriDir  = fullfile(userpath,'teach','teachmri');
@@ -97,7 +99,7 @@ else
         'ISETCAM-ISETLENS',...
         'ISETCAM-TEACH-ISETCAL',...
         'ISETCAM-HYPERSPECTRAL',...
-        'VISTA-OPH',...
+        'VISTA-OPH-BB',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-PRFmodel-SPM-KNK-PTB',...
         'VISTA-TEACH',...
@@ -334,10 +336,11 @@ else
             addpath(genpath(cniDir));
             chdir(cniDir);
             
-        case 'VISTA-OPH'
+        case 'VISTA-OPH-BB'
             addpath(genpath(vistaDir));
+            addpath(genpath(BrainBDir));
             addpath(genpath(ophDIR));
-            addpath(genpath(vlfeatDir));
+            addpath(genpath(vlfeatDir)); % Produces warnings for det and cummax
             chdir(ophDIR);
             
         case 'VISTA-TEACH'
