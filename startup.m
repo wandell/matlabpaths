@@ -29,6 +29,8 @@ else
     isetbiolivescriptDir   = fullfile(userpath,'isetbiolivescript');
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dDir    = fullfile(userpath,'iset3d');
+    iset3dV4Dir    = fullfile(userpath,'iset3d-V4');
+    
     isetcloudDir = fullfile(userpath,'isetcloud');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
     isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
@@ -95,7 +97,7 @@ else
         'ISETCAM-ISET3D-ISETCLOUD',...
         'ISETCAM-ISET3D-ISETLENS',...
         'ISETCAM-ISET3D-ISETFLUOR',...
-        'ISETCAM-ISET3D-ISETAUTO',...
+        'ISETCAM-ISET3DV4',...
         'ISETCAM-ISETFLUOR-OE',...
         'ISETCAM-ISETLENS',...
         'ISETCAM-TEACH-ISETCAL',...
@@ -206,6 +208,13 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dDir));
             chdir(iset3dDir);
+        case 'ISETCAM-ISET3DV4'
+            addpath(genpath(isetcamDir));
+            warning('off','MATLAB:rmpath:DirNotFound');
+            rmpath(genpath(isetbioDir));
+            warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(iset3dV4Dir));
+            chdir(iset3dV4Dir);
         case 'ISETCAM-ISET3D-FLY'
             addpath(genpath(isetcamDir));
             warning('off','MATLAB:rmpath:DirNotFound');
