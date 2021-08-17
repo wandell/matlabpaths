@@ -387,6 +387,10 @@ else
     clear vistaDir spmDir teachmriDir knkDir examplesDir
     clear wlDir wlGaborDir wlTalksDir
     clear stDir stAppsDir jsonioDir wltalksDir curDir ii pathOptions c
+    
+    % For BW use.
+    ghdesktop = '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';
+
 end
 
 %%
