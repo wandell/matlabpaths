@@ -119,12 +119,13 @@ else
     %% Notify of tools
     
     disp(pathOptions{R})
-    disp('Adding UTT, JSONio, Scitran')
-    % addpath(genpath(rdDir));
+    disp('Adding UTT, Scitran')
     addpath(genpath(unitTestDir));
-    % addpath(genpath(examplesDir));
-    addpath(genpath(jsonioDir));
     addpath(genpath(stDir));
+    
+    % addpath(genpath(rdDir));
+    % addpath(genpath(examplesDir));
+    % addpath(genpath(jsonioDir));
     
     %%
     
