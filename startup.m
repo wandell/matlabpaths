@@ -24,7 +24,7 @@ else
     % Maybe these should all be inside of an ISET subdirectory.
     isetcamDir   = fullfile(userpath,'isetcam');
     isetbioDir   = fullfile(userpath,'isetbio');
-    isetbioCSFDir   = fullfile(userpath,'isetbiocsf');
+    isetbioCSFDir   = fullfile(userpath,'isetbiocsfgenerator');
 
     isetbiolivescriptDir   = fullfile(userpath,'isetbiolivescript');
     isetlensDir  = fullfile(userpath,'isetlens');
@@ -83,7 +83,7 @@ else
     jsonioDir    = fullfile(userpath,'tools','JSONio');
     % examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
     unitTestDir  = fullfile(userpath,'tools','UnitTestToolbox');
-    % rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
+    rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
     psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
     
     %%
@@ -119,11 +119,10 @@ else
     %% Notify of tools
     
     disp(pathOptions{R})
-    disp('Adding UTT, Scitran')
+    disp('Adding UTT, RDT, Scitran')
     addpath(genpath(unitTestDir));
-    addpath(genpath(stDir));
-    
-    % addpath(genpath(rdDir));
+    addpath(genpath(stDir));    
+    addpath(genpath(rdDir));
     % addpath(genpath(examplesDir));
     % addpath(genpath(jsonioDir));
     
