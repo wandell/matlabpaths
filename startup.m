@@ -135,6 +135,7 @@ else
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(jsonioDir));
             addpath(genpath(iset3dDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
@@ -157,7 +158,7 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(wlDir));
             addpath(genpath(mquestplus));
-
+            
             addpath(genpath(isetflywheelDir));
             chdir(isetbioDir);
         case 'ISETBIO-TEACH'
@@ -350,6 +351,7 @@ else
             addpath(genpath(vistaDir));
             addpath(genpath(BrainBDir));
             addpath(genpath(ophDIR));
+            addpath(genpath(jsonioDir));
             addpath(genpath(vlfeatDir)); % Produces warnings for det and cummax
             addpath(genpath(retinaTOMEDir)); % Produces warnings for det and cummax
             chdir(ophDIR);
