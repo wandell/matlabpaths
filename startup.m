@@ -121,7 +121,7 @@ else
     disp(pathOptions{R})
     disp('Adding UTT, RDT, Scitran')
     addpath(genpath(unitTestDir));
-    addpath(genpath(stDir));    
+    addpath(genpath(stDir));
     addpath(genpath(rdDir));
     % addpath(genpath(examplesDir));
     % addpath(genpath(jsonioDir));
@@ -137,6 +137,7 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(jsonioDir));
             addpath(genpath(iset3dDir));
+            addpath(genpath(jsonioDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
             chdir(isetbioDir);
@@ -145,6 +146,7 @@ else
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(jsonioDir));
             addpath(genpath(wlDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
@@ -156,6 +158,7 @@ else
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(jsonioDir));
             addpath(genpath(wlDir));
             addpath(genpath(mquestplus));
             
@@ -166,6 +169,7 @@ else
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(jsonioDir));
             addpath(genpath(teachiseDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
@@ -175,6 +179,7 @@ else
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
             warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(jsonioDir));
             addpath(genpath(isetbiolivescriptDir));
             addpath(genpath(mquestplus));
             chdir(isetbioDir);
