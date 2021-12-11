@@ -24,7 +24,7 @@ else
     % Maybe these should all be inside of an ISET subdirectory.
     isetcamDir   = fullfile(userpath,'isetcam');
     isetbioDir   = fullfile(userpath,'isetbio');
-    isetbioCSFDir   = fullfile(userpath,'isetbiocsfgenerator');
+    isetbioCSFDir   = fullfile(userpath,'isetbiocsf');
 
     isetbiolivescriptDir   = fullfile(userpath,'isetbiolivescript');
     isetlensDir  = fullfile(userpath,'isetlens');
