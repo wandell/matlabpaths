@@ -2,6 +2,31 @@
 %
 %   Brian Wandell
 %
+%
+
+%{
+% When using the ISET3d-v4 with a GPU we need to do something like
+% this.  These are the key/value options that we pass in piRender when
+% running with the GPU
+%
+% This sticks across Matlab sessions.  So you don't need to run it
+% every time.
+%
+
+renderString = {'gpuRendering', true, ...
+                'remoteMachine', 'muxreconrt.stanford.edu',...
+                'renderContext', 'wandell-v4',...
+                'remoteImage',  'digitalprodev/pbrt-v4-gpu-ampere-mux', ...
+                'remoteRoot','/home/wandell', ...
+                'remoteUser', 'wandell', ...
+                'whichGPU', 1};
+
+                % 'localRoot', <for WSL>, ...   % Not needed on MacOS
+
+setpref('docker', 'renderString', renderString);
+getpref('docker','renderString')   % Check
+%}
+
 if isdeployed
     % Do nothing
 else
