@@ -19,12 +19,15 @@ renderString = {'gpuRendering', true, ...
                 'remoteImage',  'digitalprodev/pbrt-v4-gpu-ampere-mux', ...
                 'remoteRoot','/home/wandell', ...
                 'remoteUser', 'wandell', ...
-                'whichGPU', 1};
+                'whichGPU', 0};
 
                 % 'localRoot', <for WSL>, ...   % Not needed on MacOS
 
 setpref('docker', 'renderString', renderString);
 getpref('docker','renderString')   % Check
+
+setpref('docker','verbosity', 1)
+
 %}
 
 if isdeployed
