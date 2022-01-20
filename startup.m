@@ -37,7 +37,8 @@ else
     set(groot,'DefaultAxesFontsize',16)
     set(groot,'DefaultAxesFontName','Georgia')
     co = [1 0 0; 0 1 0 ; 0 0 1; 1 0 1; 0 1 1; 0 0 0];
-    set(groot,'defaultAxesColorOrder',co)
+    set(groot,'defaultAxesColorOrder',co);
+    set(0,'DefaultLineLineWidth',1);
     
     %%
     restoredefaultpath; savepath;
