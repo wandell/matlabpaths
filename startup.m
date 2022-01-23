@@ -165,7 +165,7 @@ else
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
             chdir(isetbioDir);
-        case 'ISETBIO-ISET3dV4-ISETLENS'
+        case 'ISETBIO-ISET3DV4-ISETLENS'
             addpath(genpath(isetbioDir));
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
