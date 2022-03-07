@@ -2,38 +2,17 @@
 %
 %   Brian Wandell
 %
-%
-
 %{
 % When using the ISET3d-v4 with a GPU we need to do something like
 % this.  These are the key/value options that we pass in piRender when
 % running with the GPU
 %
 % This sticks across Matlab sessions.  So you don't need to run it
-% every time.
+% every time.  This requires the 'vistalab' repository, however!
 %
-
+%  dockerWrapper.setParams('remoteRoot','/home/wandell');
+%  dockerWrapper.setParams('whichGPU',0);
 %
-% Possible remote images for muxreconrt
-%
-‘whichGPU’, 0, ‘remoteImage’, ‘digitalprodev/pbrt-v4-gpu-ampere-mux-shared’
-‘whichGPU’ ,1, ‘remoteImage', ‘digitalprodev/pbrt-v4-gpu-volta-mux’
-
-renderString = {'gpuRendering', true, ...
-                'remoteMachine', 'muxreconrt.stanford.edu',...
-                'renderContext', 'wandell-v4',...
-                'remoteImage',  'digitalprodev/pbrt-v4-gpu-ampere-mux-shared', ...
-                'remoteRoot','/home/wandell', ...
-                'remoteUser', 'wandell', ...
-                'whichGPU', 0};
-
-                % 'localRoot', <for WSL>, ...   % Not needed on MacOS
-
-setpref('docker', 'renderString', renderString);
-getpref('docker','renderString')   % Check
-
-setpref('docker','verbosity', 1)
-
 %}
 
 if isdeployed
@@ -65,6 +44,7 @@ else
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dDir    = fullfile(userpath,'iset3d');
     iset3dV4Dir    = fullfile(userpath,'iset3d-V4');
+    isetVistalab = fullfile(userpath,'vistalab');
     
     isetcloudDir = fullfile(userpath,'isetcloud');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
@@ -151,7 +131,7 @@ else
     disp('Adding UTT, RDT, Scitran')
     addpath(genpath(unitTestDir));
     addpath(genpath(stDir));
-    addpath(genpath(rdDir));
+    % addpath(genpath(rdDir));
     % addpath(genpath(examplesDir));
     % addpath(genpath(jsonioDir));
     
@@ -179,6 +159,8 @@ else
             addpath(genpath(jsonioDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
+            addpath(genpath(isetVistalab));    % Used by ISET3d-V4
+
             chdir(isetbioDir);  
         case 'ISETBIO-WL'
             addpath(genpath(isetbioDir));
@@ -257,8 +239,11 @@ else
             addpath(genpath(isetcamDir));
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
+            warning('on','MATLAB:rmpath:DirNotFound');            
             addpath(genpath(iset3dV4Dir));
+            addpath(genpath(isetlensDir));
+            addpath(genpath(isetVistalab));    % Used by ISET3d-V4
+
             chdir(iset3dV4Dir);
         case 'ISETCAM-ISET3DV4-FLY'
             addpath(genpath(isetcamDir));
@@ -267,6 +252,8 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetflywheelDir));
+            addpath(genpath(isetVistalab));    % Used by ISET3d-V4
+
             chdir(isetcamDir);
         case 'ISETCAM-CALIBRATE-WL'
             addpath(genpath(isetcamDir));
