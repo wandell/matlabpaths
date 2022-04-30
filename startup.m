@@ -10,7 +10,11 @@
 % This sticks across Matlab sessions.  So you don't need to run it
 % every time.  This requires the 'vistalab' repository, however!
 %
+% I think these are the only two essential set commands these days to
+% run on muxreconrt.   See piDockerC
+%
 %  dockerWrapper.setParams('remoteRoot','/home/wandell');
+%  dockerWrapper.setParams('remoteUser','wandell');
 %  dockerWrapper.setParams('whichGPU',0);
 %
 %}
@@ -44,7 +48,7 @@ else
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dDir    = fullfile(userpath,'iset3d');
     iset3dV4Dir    = fullfile(userpath,'iset3d-V4');
-    isetVistalab = fullfile(userpath,'vistalab');
+    % isetVistalab = fullfile(userpath,'vistalab');
     
     isetcloudDir = fullfile(userpath,'isetcloud');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
