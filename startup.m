@@ -163,7 +163,7 @@ else
             addpath(genpath(jsonioDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
-            addpath(genpath(isetVistalab));    % Used by ISET3d-V4
+            % addpath(genpath(isetVistalab));    % Used by ISET3d-V4
 
             chdir(isetbioDir);  
         case 'ISETBIO-WL'
@@ -246,7 +246,7 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');            
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetlensDir));
-            addpath(genpath(isetVistalab));    % Used by ISET3d-V4
+            % addpath(genpath(isetVistalab));    % Used by ISET3d-V4
 
             chdir(iset3dV4Dir);
         case 'ISETCAM-ISET3DV4-FLY'
@@ -256,7 +256,7 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetflywheelDir));
-            addpath(genpath(isetVistalab));    % Used by ISET3d-V4
+            % addpath(genpath(isetVistalab));    % Used by ISET3d-V4
 
             chdir(isetcamDir);
         case 'ISETCAM-CALIBRATE-WL'
