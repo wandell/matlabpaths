@@ -10,12 +10,9 @@
 % This sticks across Matlab sessions.  So you don't need to run it
 % every time.  This requires the 'vistalab' repository, however!
 %
-% I think these are the only two essential set commands these days to
-% run on muxreconrt.   See piDockerC
-%
 %  dockerWrapper.setParams('remoteRoot','/home/wandell');
-%  dockerWrapper.setParams('remoteUser','wandell');
 %  dockerWrapper.setParams('whichGPU',0);
+%  dockerWrapper.setParams('remoteUser','wandell');
 %
 %}
 
@@ -50,12 +47,13 @@ else
     iset3dV4Dir    = fullfile(userpath,'iset3d-V4');
     % isetVistalab = fullfile(userpath,'vistalab');
     
-    isetcloudDir = fullfile(userpath,'isetcloud');
+    isetautoDir           = fullfile(userpath,'isetprojects','isetauto');
+    cocoDir               = fullfile(userpath,'external','cocoapi');
+    isetcloudDir          = fullfile(userpath,'isetcloud');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
     isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
     isetgDir              = fullfile(userpath,'isetg');
-    isetautoDir           = fullfile(userpath,'isetauto');
     mquestplus            = fullfile(userpath,'mQUESTPlus');
     %{
     isetL3Dir    = fullfile(userpath,'isetL3');
@@ -111,7 +109,7 @@ else
         'ISETBIO-TEACH',...
         'ISETCAM-ISET3DV4',...
         'ISETCAM-ISET3DV4-ISETLENS',...
-        'ISETCAM-ISET3DV4-ISETFLUOR',...
+        'ISETCAM-ISET3DV4-ISETAUTO',...
         'ISETCAM-ISETFLUOR-OE',...        
         'ISETCAM-TEACH-ISETCAL',...
         'ISETCAM-HYPERSPECTRAL',...
@@ -163,7 +161,7 @@ else
             addpath(genpath(jsonioDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
-            % addpath(genpath(isetVistalab));    % Used by ISET3d-V4
+            addpath(genpath(isetVistalab));    % Used by ISET3d-V4
 
             chdir(isetbioDir);  
         case 'ISETBIO-WL'
@@ -239,6 +237,14 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV4Dir));
             chdir(iset3dV4Dir);
+        case 'ISETCAM-ISET3DV4-ISETAUTO'
+            addpath(genpath(isetcamDir));
+            warning('off','MATLAB:rmpath:DirNotFound');
+            rmpath(genpath(isetbioDir));
+            warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(iset3dV4Dir));
+            addpath(genpath(isetautoDir));
+            addpath(genpath(cocoDir));            
         case 'ISETCAM-ISET3DV4-ISETLENS'
             addpath(genpath(isetcamDir));
             warning('off','MATLAB:rmpath:DirNotFound');
@@ -246,8 +252,6 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');            
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetlensDir));
-            % addpath(genpath(isetVistalab));    % Used by ISET3d-V4
-
             chdir(iset3dV4Dir);
         case 'ISETCAM-ISET3DV4-FLY'
             addpath(genpath(isetcamDir));
@@ -256,7 +260,6 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetflywheelDir));
-            % addpath(genpath(isetVistalab));    % Used by ISET3d-V4
 
             chdir(isetcamDir);
         case 'ISETCAM-CALIBRATE-WL'
