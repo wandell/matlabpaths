@@ -98,15 +98,16 @@ else
     
     %% CNI related
     jsonioDir    = fullfile(userpath,'tools','JSONio');
-    % examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
     unitTestDir  = fullfile(userpath,'tools','UnitTestToolbox');
-    rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
     psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
-    
+
+    % examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
+    % rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
+
     %%
     fprintf('***Path selection****\n');
     pathOptions = {'ISETBIO-ISET3DV4-ISETLENS', ...
-        'ISETBIO-TEACH',...
+        'ISETBIO-ISET3D-TEACH',...
         'ISETCAM-ISET3DV4',...
         'ISETCAM-ISET3DV4-ISETLENS',...
         'ISETCAM-ISET3DV4-ISETAUTO',...
@@ -187,7 +188,7 @@ else
             
             addpath(genpath(isetflywheelDir));
             chdir(isetbioDir);
-        case 'ISETBIO-TEACH'
+        case 'ISETBIO-ISET3D-TEACH'
             addpath(genpath(isetbioDir));
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
@@ -195,6 +196,7 @@ else
             addpath(genpath(jsonioDir));
             addpath(genpath(teachiseDir));
             addpath(genpath(isetbioCSFDir));
+            addpath(genpath(iset3dDir));
             addpath(genpath(mquestplus));
             chdir(isetbioDir);
         case 'ISETBIO-LIVESCRIPT'
