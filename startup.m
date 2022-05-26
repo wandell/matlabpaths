@@ -162,7 +162,6 @@ else
             addpath(genpath(jsonioDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
-            addpath(genpath(isetVistalab));    % Used by ISET3d-V4
 
             chdir(isetbioDir);  
         case 'ISETBIO-WL'
