@@ -102,7 +102,7 @@ else
     psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
 
     % examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
-    % rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
+    rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
 
     %%
     fprintf('***Path selection****\n');
@@ -134,7 +134,7 @@ else
     disp('Adding UTT, RDT, Scitran')
     addpath(genpath(unitTestDir));
     addpath(genpath(stDir));
-    % addpath(genpath(rdDir));
+    addpath(genpath(rdDir));
     % addpath(genpath(examplesDir));
     % addpath(genpath(jsonioDir));
     
