@@ -359,6 +359,7 @@ else
             
         case 'SCIAPPS-VISTA-SPM'
             % Scitran and Vistasoft
+            addpath(genpath(jsonioDir));
             addpath(genpath(spmDir));
             addpath(genpath(stAppsDir));
             addpath(genpath(vistaDir));  % Make sure this is last
@@ -371,6 +372,7 @@ else
             addpath(genpath(psychtoolboxDir));
             addpath(genpath(PRFmodel));
             addpath(genpath(vistaDir));  % Make sure this is last
+            addpath(genpath(jsonioDir));
             chdir(PRFmodel);
             
         case 'VISTA-PRFmodel-SPM'
@@ -378,12 +380,15 @@ else
             addpath(genpath(spmDir));
             addpath(genpath(PRFmodel));
             addpath(genpath(vistaDir));  % Make sure this is last
+            addpath(genpath(jsonioDir));
+
             chdir(PRFmodel);
             
         case 'VISTA-CNI'
             % CNI TSNR calculations.  Threw in Vista just in case.
             addpath(genpath(vistaDir));
             addpath(genpath(cniDir));
+            addpath(genpath(jsonioDir));
             chdir(cniDir);
             
         case 'VISTA-OPH-BB'
@@ -400,6 +405,8 @@ else
             addpath(genpath(spmDir));
             addpath(genpath(teachmriDir));
             addpath(genpath(vistaDir));  % Make sure this is last
+            addpath(genpath(jsonioDir));
+
             chdir(teachmriDir);
             
         case 'TEACHMRI'
