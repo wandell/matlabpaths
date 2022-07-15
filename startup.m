@@ -43,8 +43,8 @@ else
 
     isetbiolivescriptDir   = fullfile(userpath,'isetbiolivescript');
     isetlensDir  = fullfile(userpath,'isetlens');
-    iset3dDir    = fullfile(userpath,'iset3d');
-    iset3dV4Dir    = fullfile(userpath,'iset3d-V4');
+    iset3dV3Dir    = fullfile(userpath,'isetprojects','iset3d-v3');
+    iset3dV4Dir    = fullfile(userpath,'iset3d-v4');
     % isetVistalab = fullfile(userpath,'vistalab');
     
     isetautoDir           = fullfile(userpath,'isetprojects','isetauto');
