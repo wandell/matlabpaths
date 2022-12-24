@@ -113,7 +113,7 @@ else
         'ISETCAM-HYPERSPECTRAL',...
         'ISETCAM-ISET3DV3',...
         'ISETCAM-ISET3DV4-TEACH',...
-        'ISETBIO-ISET3DV4-ISETLENS', ... 
+        'ISETBIO-ISET3DV4-TEACH', ... 
         'VISTA-OPH-BB',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-CNI',...
@@ -187,7 +187,7 @@ else
             
             addpath(genpath(isetflywheelDir));
             chdir(isetbioDir);
-        case 'ISETBIO-ISET3DV3-TEACH'
+        case 'ISETBIO-ISET3DV4-TEACH'
             addpath(genpath(isetbioDir));
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
@@ -195,7 +195,7 @@ else
             addpath(genpath(jsonioDir));
             addpath(genpath(teachiseDir));
             addpath(genpath(isetbioCSFDir));
-            addpath(genpath(iset3dV3Dir));
+            addpath(genpath(iset3dV4Dir));
             addpath(genpath(mquestplus));
             chdir(isetbioDir);
         case 'ISETBIO-LIVESCRIPT'
