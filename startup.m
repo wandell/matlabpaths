@@ -130,10 +130,10 @@ else
     %% Notify of tools
     
     disp(pathOptions{R})
-    disp('Adding UTT, RDT, Scitran')
+    disp('Adding UTT, Scitran')
     addpath(genpath(unitTestDir));
     addpath(genpath(stDir));
-    addpath(genpath(rdDir));
+    % addpath(genpath(rdDir));
     % addpath(genpath(examplesDir));
     % addpath(genpath(jsonioDir));
     
