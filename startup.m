@@ -41,7 +41,7 @@ else
     isetbioDir   = fullfile(userpath,'isetbio');
     isetbioCSFDir   = fullfile(userpath,'isetbiocsf');
 
-    isetbiolivescriptDir   = fullfile(userpath,'isetbiolivescript');
+    isetbiolivescriptDir   = fullfile(userpath,'isetbioprojects','isetbiolivescript');
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dV3Dir    = fullfile(userpath,'isetprojects','iset3d-v3');
     iset3dV4Dir    = fullfile(userpath,'iset3d-v4');
