@@ -141,16 +141,6 @@ else
     
     switch pathOptions{R}
         %  ISETBio
-        case 'ISETBIO-ISET3DV3'
-            addpath(genpath(isetbioDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetcamDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
-            addpath(genpath(iset3dV3Dir));
-            addpath(genpath(jsonioDir));
-            addpath(genpath(isetbioCSFDir));
-            addpath(genpath(mquestplus));
-            chdir(isetbioDir);
         case 'ISETBIO-ISET3DV4-ISETLENS'
             addpath(genpath(isetbioDir));
             warning('off','MATLAB:rmpath:DirNotFound');
