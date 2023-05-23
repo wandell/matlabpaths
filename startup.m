@@ -113,6 +113,7 @@ else
         'ISETCAM-HYPERSPECTRAL',...
         'ISETCAM-ISET3DV4-TEACH',...
         'ISETBIO-ISET3DV4-TEACH', ... 
+        'ISETBIO-ISET3DV4-ISETCAM', ...
         'VISTA-OPH-BB',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-CNI',...
@@ -186,6 +187,15 @@ else
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(mquestplus));
+            chdir(isetbioDir);
+        case 'ISETBIO-ISET3DV4-ISETCAM'
+            % For isetcam branch of isetbio
+            addpath(genpath(isetbioDir));
+            addpath(genpath(isetcamDir));
+            addpath(genpath(jsonioDir));
+            addpath(genpath(isetbioCSFDir));
+            addpath(genpath(iset3dV4Dir));
+            addpath(genpath(mquestplus));            
             chdir(isetbioDir);
         case 'ISETBIO-LIVESCRIPT'
             addpath(genpath(isetbioDir));
