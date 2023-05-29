@@ -55,20 +55,11 @@ else
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
     isetgDir              = fullfile(userpath,'isetg');
     mquestplus            = fullfile(userpath,'mQUESTPlus');
-    %{
-    isetL3Dir    = fullfile(userpath,'isetL3');
-    iset360Dir   = fullfile(userpath,'iset360');
-    isetmosaicsDir        = fullfile(userpath,'isetmosaics');
-    isetmultispectralDir  = fullfile(userpath,'isetmultispectral');
-    isetflywheelDir   = fullfile(userpath,'isetflywheel');
-    isetverseDir          = fullfile(userpath,'isetverse');
-    %}
-    
-    % We might want to specify individual sub-directories
-    wlDir        = fullfile(userpath,'LABS','WL');
-    oraleyeDir   = fullfile(userpath,'LABS','WL','oraleye');
     cniDir       = fullfile(userpath,'cni');
-    
+
+    % We might want to specify individual sub-directories
+    % wlDir        = fullfile(userpath,'LABS','WL');
+    % oraleyeDir   = fullfile(userpath,'LABS','WL','oraleye');    
     %{
      wlTalksDir   = fullfile(userpath,'LABS''WL','WLTalks');
      wlGaborDir   = fullfile(userpath,'LABS','WL','WLGabor');
@@ -100,9 +91,10 @@ else
     jsonioDir    = fullfile(userpath,'tools','JSONio');
     unitTestDir  = fullfile(userpath,'tools','UnitTestToolbox');
     psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
+    dbDir        = fullfile(userpath,'isetprojects','isetonline');
 
     % examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
-    rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
+    % rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
 
     %%
     fprintf('***Path selection****\n');
@@ -114,6 +106,8 @@ else
         'ISETCAM-ISET3DV4-TEACH',...
         'ISETBIO-ISET3DV4-TEACH', ... 
         'ISETBIO-ISET3DV4-ISETCAM', ...
+        'ISETCAM-MASTER', ...
+        'ISETBIO-MASTER', ...
         'VISTA-OPH-BB',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-CNI',...
@@ -129,18 +123,20 @@ else
     R = input('Enter choice number:  ');
     
     %% Notify of tools
-    
     disp(pathOptions{R})
-    disp('Adding UTT, Scitran')
+    disp('Adding UTT, Scitran, isetonline')
     addpath(genpath(unitTestDir));
+    addpath(genpath(dbDir));
     addpath(genpath(stDir));
-    % addpath(genpath(rdDir));
-    % addpath(genpath(examplesDir));
-    % addpath(genpath(jsonioDir));
     
     %%
     
     switch pathOptions{R}
+        % For merging ISETBio/ISETCam
+        case 'ISETBIO-MASTER'
+            addpath(genpath(fullfile(userpath,'isetbio-master')));
+        case 'ISETCAM-MASTER'
+            addpath(genpath(fullfile(userpath,'isetcam-master')));
         %  ISETBio
         case 'ISETBIO-ISET3DV4-ISETLENS'
             addpath(genpath(isetbioDir));
@@ -253,7 +249,9 @@ else
             warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetautoDir));
-            addpath(genpath(cocoDir));            
+            addpath(genpath(cocoDir));     
+            chdir(isetautoDir);
+      
         case 'ISETCAM-ISET3DV4-ISETLENS'
             addpath(genpath(isetcamDir));
             warning('off','MATLAB:rmpath:DirNotFound');
