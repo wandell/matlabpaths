@@ -19,13 +19,22 @@
 if isdeployed
     % Do nothing
 else
-    %%
+    % Plot and root graphics defaults
     set(groot,'DefaultAxesFontsize',16)
     set(groot,'DefaultAxesFontName','Georgia')
+
+    % Color ordering
     co = [1 0 0; 0 1 0 ; 0 0 1; 1 0 1; 0 1 1; 0 0 0];
     set(groot,'defaultAxesColorOrder',co);
+
+    % Line width
     set(0,'DefaultLineLineWidth',1);
     
+    % Livescripts font size.
+    s = settings;
+    s.matlab.fonts.editor.normal.Size.PersonalValue = 16;
+    clear s;
+
     %%
     restoredefaultpath; savepath;
     % addpath(fullfile(userpath,'SupportPackages','R2020a'));
