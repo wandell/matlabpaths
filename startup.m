@@ -47,10 +47,13 @@ else
     
     % Maybe these should all be inside of an ISET subdirectory.
     isetcamDir   = fullfile(userpath,'isetcam');
+    isetcamvalidate = fullfile(userpath,'validate','isetcamvalidate');
+
     isetbioDir   = fullfile(userpath,'isetbio');
     isetbioCSFDir   = fullfile(userpath,'isetbiocsf');
-
+    isetbiovalidate = fullfile(userpath,'validate','isetbiovalidate');
     isetbiolivescriptDir   = fullfile(userpath,'isetbioprojects','isetbiolivescript');
+
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dV3Dir    = fullfile(userpath,'isetprojects','iset3d-v3');
     iset3dV4Dir    = fullfile(userpath,'iset3d-v4');
@@ -58,11 +61,11 @@ else
     
     isetautoDir           = fullfile(userpath,'isetprojects','isetauto');
     cocoDir               = fullfile(userpath,'external','cocoapi');
-    isetcloudDir          = fullfile(userpath,'isetcloud');
+    % isetcloudDir          = fullfile(userpath,'isetcloud');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
     isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
-    isetgDir              = fullfile(userpath,'isetg');
+    % isetgDir              = fullfile(userpath,'isetg');
     mquestplus            = fullfile(userpath,'mQUESTPlus');
     cniDir       = fullfile(userpath,'cni');
 
@@ -108,15 +111,10 @@ else
     %%
     fprintf('***Path selection****\n');
     pathOptions = {'ISETCAM-ISET3DV4',...
-        'ISETCAM-TEACH-ISET3DV4',...
+        'ISETCAM-ISET3DV4-TEACH',...
         'ISETCAM-ISET3DV4-ISETLENS',...
         'ISETCAM-ISET3DV4-ISETAUTO',...
-        'ISETCAM-HYPERSPECTRAL',...
-        'ISETCAM-ISET3DV4-TEACH',...
         'ISETBIO-ISET3DV4-TEACH', ... 
-        'ISETBIO-ISET3DV4-ISETCAM', ...
-        'ISETCAM-MASTER', ...
-        'ISETBIO-MASTER', ...
         'VISTA-OPH-BB',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-CNI',...
@@ -149,21 +147,17 @@ else
         %  ISETBio
         case 'ISETBIO-ISET3DV4-ISETLENS'
             addpath(genpath(isetbioDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetcamDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
-            addpath(genpath(isetlensDir));
+            addpath(genpath(isetcamDir));
             addpath(genpath(iset3dV4Dir));
+            addpath(genpath(isetlensDir));
             addpath(genpath(jsonioDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
-
             chdir(isetbioDir);  
+
         case 'ISETBIO-WL'
             addpath(genpath(isetbioDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetcamDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(isetcamDir));
             addpath(genpath(jsonioDir));
             addpath(genpath(wlDir));
             addpath(genpath(isetbioCSFDir));
@@ -172,6 +166,7 @@ else
         case 'ISETBIO-WL-FLY'
             % Putting pre-computed data into Flywheel
             addpath(genpath(isetbioDir));
+            addpath(genpath(isetcamDir));
             addpath(genpath(isetbioCSFDir));
             warning('off','MATLAB:rmpath:DirNotFound');
             rmpath(genpath(isetcamDir));
@@ -184,9 +179,7 @@ else
             chdir(isetbioDir);
         case 'ISETBIO-ISET3DV4-TEACH'
             addpath(genpath(isetbioDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetcamDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(isetcamDir));
             addpath(genpath(jsonioDir));
             addpath(genpath(teachiseDir));
             addpath(genpath(isetbioCSFDir));
@@ -204,9 +197,7 @@ else
             chdir(isetbioDir);
         case 'ISETBIO-LIVESCRIPT'
             addpath(genpath(isetbioDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetcamDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
+            addpath(genpath(isetcamDir));
             addpath(genpath(jsonioDir));
             addpath(genpath(isetbiolivescriptDir));
             addpath(genpath(mquestplus));
@@ -214,48 +205,36 @@ else
             
             %  ISETCam
         case 'ISETCAM-TEACH'
+            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(teachiseDir));
             chdir(teachiseDir);
-        case 'ISETCAM-TEACH-ISET3DV4'
+        case 'ISETCAM-ISET3DV4-TEACH' 
+            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(teachiseDir));
             addpath(genpath(iset3dV4Dir));
             chdir(teachiseDir);
 
         case 'ISETCAM-TEACH-ISETCAL'
+            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(teachiseDir));
             addpath(genpath(isetcalibrateDir));
             chdir(teachiseDir);
         case 'ISETCAM-WL'
+            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(wlDir));
             chdir(isetcamDir);
         case 'ISETCAM-ISET3DV4'
+            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV4Dir));
             chdir(iset3dV4Dir);
         case 'ISETCAM-ISET3DV4-ISETAUTO'
+            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetautoDir));
             addpath(genpath(cocoDir));     
@@ -263,102 +242,61 @@ else
       
         case 'ISETCAM-ISET3DV4-ISETLENS'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');            
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetlensDir));
             chdir(iset3dV4Dir);
         case 'ISETCAM-ISET3DV4-FLY'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetflywheelDir));
 
             chdir(isetcamDir);
         case 'ISETCAM-CALIBRATE-WL'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(wlDir));
             addpath(genpath(isetcalibrateDir));
             chdir(isetcamDir);
         case 'ISETCAM-ISET3DV3-ISETFLUOR'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(isetfluorescenceDir));
             addpath(genpath(iset3dV3Dir));
             chdir(isetcamDir);
         case 'ISETCAM-ISET3DV3'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV3Dir));
             addpath(genpath(isetautoDir));
             chdir(isetautoDir);
         case 'ISETCAM-ISET3DV3-ISETAUTO'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV3Dir));
             addpath(genpath(isetautoDir));
             chdir(isetautoDir);
         case 'ISETCAM-ISET3DV3-ISETCLOUD'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(isetcloudDir));
             addpath(genpath(iset3dV3Dir));
             chdir(isetcamDir);
         case 'ISETCAM-ISETLENS'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
-            addpath(genpath(isetlensDir));
             chdir(isetlensDir);
         case 'ISETCAM-ISETFLUOR'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
-            addpath(genpath(isetfluorescenceDir));
             chdir(isetfluorescenceDir);
         case 'ISETCAM-ISETFLUOR-OE'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(isetfluorescenceDir));
             addpath(genpath(oraleyeDir));
             chdir(isetfluorescenceDir);
         case 'ISETCAM-HYPERSPECTRAL'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(isethyperspectral));
             chdir(isethyperspectral);
         case 'ISETCAM-ISETG'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(isetgDir));
             chdir(isetgDir);            
         case 'ISETCAM-ISET3DV3-ISETVERSE'
             addpath(genpath(isetcamDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetbioDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(iset3dV3Dir));
             addpath(genpath(isetverseDir));
             chdir(isetverseDir);
@@ -433,8 +371,8 @@ else
     fprintf('Current directory: %s\n',pwd)
     %% Clear variables
     
-    clear isetbioDir isetbiolivescriptDir
-    clear R isetcamDir wlDir rtbDir piDir iset360Dir iset3dV3Dir
+    clear isetbioDir isetbiolivescriptDir isetbiovalidate
+    clear R isetcamDir wlDir rtbDir piDir iset360Dir iset3dV3Dir isetcamvalidate
     clear isetL3Dir isetautoDir isetcalibrateDir isetcloudDir isetfluorescenceDir
     clear isetflywheelDir isetlensDir isetmosaicsDir isetmultispectralDir
     clear unitTestDir rdDir s3dDir psychtoolboxDir teachiseDir
