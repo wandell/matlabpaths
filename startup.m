@@ -47,11 +47,11 @@ else
     
     % Maybe these should all be inside of an ISET subdirectory.
     isetcamDir   = fullfile(userpath,'isetcam');
-    isetcamvalidate = fullfile(userpath,'validate','isetcamvalidate');
+    isetcamvalidateDir = fullfile(userpath,'validate','isetcamvalidate');
 
     isetbioDir   = fullfile(userpath,'isetbio');
     isetbioCSFDir   = fullfile(userpath,'isetbiocsf');
-    isetbiovalidate = fullfile(userpath,'validate','isetbiovalidate');
+    isetbiovalidateDir = fullfile(userpath,'validate','isetbiovalidate');
     isetbiolivescriptDir   = fullfile(userpath,'isetbioprojects','isetbiolivescript');
 
     isetlensDir  = fullfile(userpath,'isetlens');
@@ -114,6 +114,7 @@ else
         'ISETCAM-ISET3DV4-TEACH',...
         'ISETCAM-ISET3DV4-ISETLENS',...
         'ISETCAM-ISET3DV4-ISETAUTO',...
+        'ISETBIO', ...
         'ISETBIO-ISET3DV4-TEACH', ... 
         'VISTA-OPH-BB',...
         'VISTA-PRFmodel-SPM', ...
@@ -144,7 +145,12 @@ else
             addpath(genpath(fullfile(userpath,'isetbio-master')));
         case 'ISETCAM-MASTER'
             addpath(genpath(fullfile(userpath,'isetcam-master')));
+        
         %  ISETBio
+        case 'ISETBIO'
+            addpath(genpath(isetbioDir));
+            addpath(genpath(isetcamDir));
+            
         case 'ISETBIO-ISET3DV4-ISETLENS'
             addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
@@ -362,6 +368,13 @@ else
             disp('Default Matlab path.')
     end
     
+    %% Add the validation directories
+    tst = which('isetRootPath');
+    if ~isempty(tst), addpath(genpath(isetcamvalidateDir)); end
+    tst = which('isetbioRootPath');
+    if ~isempty(tst), addpath(genpath(isetbiovalidateDir)); end
+
+
     %% Eliminates the .git directories from the path.
     
     curDir = pwd;
