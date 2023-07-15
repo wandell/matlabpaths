@@ -174,9 +174,6 @@ else
             addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
             addpath(genpath(isetbioCSFDir));
-            warning('off','MATLAB:rmpath:DirNotFound');
-            rmpath(genpath(isetcamDir));
-            warning('on','MATLAB:rmpath:DirNotFound');
             addpath(genpath(jsonioDir));
             addpath(genpath(wlDir));
             addpath(genpath(mquestplus));
@@ -192,7 +189,7 @@ else
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(mquestplus));
             chdir(isetbioDir);
-        case 'ISETBIO-ISET3DV4-ISETCAM'
+        case 'ISETBIO-ISET3DV4'
             % For isetcam branch of isetbio
             addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
@@ -211,35 +208,29 @@ else
             
             %  ISETCam
         case 'ISETCAM-TEACH'
-            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
             addpath(genpath(teachiseDir));
             chdir(teachiseDir);
         case 'ISETCAM-ISET3DV4-TEACH' 
-            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
             addpath(genpath(teachiseDir));
             addpath(genpath(iset3dV4Dir));
             chdir(teachiseDir);
 
         case 'ISETCAM-TEACH-ISETCAL'
-            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
             addpath(genpath(teachiseDir));
             addpath(genpath(isetcalibrateDir));
             chdir(teachiseDir);
         case 'ISETCAM-WL'
-            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
             addpath(genpath(wlDir));
             chdir(isetcamDir);
         case 'ISETCAM-ISET3DV4'
-            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
             addpath(genpath(iset3dV4Dir));
             chdir(iset3dV4Dir);
         case 'ISETCAM-ISET3DV4-ISETAUTO'
-            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetautoDir));
@@ -370,9 +361,16 @@ else
     
     %% Add the validation directories
     tst = which('isetRootPath');
-    if ~isempty(tst), addpath(genpath(isetcamvalidateDir)); end
+    if ~isempty(tst)
+        disp('Adding ISETCam validate.')
+        addpath(genpath(isetcamvalidateDir)); 
+    end
+    
     tst = which('isetbioRootPath');
-    if ~isempty(tst), addpath(genpath(isetbiovalidateDir)); end
+    if ~isempty(tst)
+        disp('Adding ISETBio validate.')
+        addpath(genpath(isetbiovalidateDir)); 
+    end
 
 
     %% Eliminates the .git directories from the path.
