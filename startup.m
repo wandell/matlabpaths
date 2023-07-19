@@ -47,11 +47,10 @@ else
     
     % Maybe these should all be inside of an ISET subdirectory.
     isetcamDir   = fullfile(userpath,'isetcam');
-    isetcamvalidateDir = fullfile(userpath,'validate','isetcamvalidate');
+    isetvalidateDir = fullfile(userpath,'isetvalidate');
 
     isetbioDir   = fullfile(userpath,'isetbio');
     isetbioCSFDir   = fullfile(userpath,'isetbiocsf');
-    isetbiovalidateDir = fullfile(userpath,'validate','isetbiovalidate');
     isetbiolivescriptDir   = fullfile(userpath,'isetbioprojects','isetbiolivescript');
 
     isetlensDir  = fullfile(userpath,'isetlens');
@@ -362,16 +361,9 @@ else
     %% Add the validation directories
     tst = which('isetRootPath');
     if ~isempty(tst)
-        disp('Adding ISETCam validate.')
-        addpath(genpath(isetcamvalidateDir)); 
+        disp('Adding ISET validate.')
+        addpath(genpath(isetvalidateDir)); 
     end
-    
-    tst = which('isetbioRootPath');
-    if ~isempty(tst)
-        disp('Adding ISETBio validate.')
-        addpath(genpath(isetbiovalidateDir)); 
-    end
-
 
     %% Eliminates the .git directories from the path.
     
@@ -382,14 +374,15 @@ else
     fprintf('Current directory: %s\n',pwd)
     %% Clear variables
     
-    clear isetbioDir isetbiolivescriptDir isetbiovalidate
-    clear R isetcamDir wlDir rtbDir piDir iset360Dir iset3dV3Dir isetcamvalidate
+    clear isetbioDir isetbiolivescriptDir isetbioCSFDir
+    clear R isetcamDir wlDir iset3dV3Dir iset3dV4Dir isetvalidateDir isethyperspectral
     clear isetL3Dir isetautoDir isetcalibrateDir isetcloudDir isetfluorescenceDir
-    clear isetflywheelDir isetlensDir isetmosaicsDir isetmultispectralDir
+    clear isetflywheelDir isetlensDir isetmosaicsDir
     clear unitTestDir rdDir s3dDir psychtoolboxDir teachiseDir
     clear vistaDir spmDir teachmriDir knkDir examplesDir
-    clear wlDir wlGaborDir wlTalksDir
-    clear stDir stAppsDir jsonioDir wltalksDir curDir ii pathOptions c
+    clear wlDir wlGaborDir wlTalksDir tst co
+    clear dbDir cocoDir cniDir BrainBDir PRFmodel mquestplus ophDIR retinaTOMEDir
+    clear stDir stAppsDir jsonioDir curDir ii pathOptions c vlfeatDir
     
 
 end
