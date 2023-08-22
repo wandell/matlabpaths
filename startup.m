@@ -102,12 +102,15 @@ else
     jsonioDir    = fullfile(userpath,'tools','JSONio');
     unitTestDir  = fullfile(userpath,'tools','UnitTestToolbox');
     psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
-    dbDir        = fullfile(userpath,'isetprojects','isetonline');
+    isetonelineDir  = fullfile(userpath,'isetprojects','isetonline');
 
-    % examplesDir  = fullfile(userpath,'tools','ExampleTestToolbox');
-    % rdDir        = fullfile(userpath,'tools','RemoteDataToolbox');
+    %% Notify of tools always added
+    disp('Adding UTT, Scitran, isetonline')
+    addpath(genpath(unitTestDir));
+    addpath(genpath(isetonelineDir));
+    addpath(genpath(stDir));
 
-    %%
+    %% Additional choices, requires a user response    
     fprintf('***Path selection****\n');
     pathOptions = {'ISETCAM-ISET3DV4',...
         'ISETCAM-ISET3DV4-TEACH',...
@@ -121,30 +124,16 @@ else
         'VISTA-TEACH',...
         'TEACHMRI',...         
         'None'};
-    
-    %% Print options and get a response
+
     for ii=1:length(pathOptions)
-        fprintf('%d %s\n',ii,pathOptions{ii});
-    end
-    
+        fprintf('%d:\t%s\n',ii,pathOptions{ii});
+    end    
     R = input('Enter choice number:  ');
-    
-    %% Notify of tools
     disp(pathOptions{R})
-    disp('Adding UTT, Scitran, isetonline')
-    addpath(genpath(unitTestDir));
-    addpath(genpath(dbDir));
-    addpath(genpath(stDir));
-    
-    %%
+
+    %% Set the paths
     
     switch pathOptions{R}
-        % For merging ISETBio/ISETCam
-        case 'ISETBIO-MASTER'
-            addpath(genpath(fullfile(userpath,'isetbio-master')));
-        case 'ISETCAM-MASTER'
-            addpath(genpath(fullfile(userpath,'isetcam-master')));
-        
         %  ISETBio
         case 'ISETBIO'
             addpath(genpath(isetbioDir));
@@ -381,7 +370,7 @@ else
     clear unitTestDir rdDir s3dDir psychtoolboxDir teachiseDir
     clear vistaDir spmDir teachmriDir knkDir examplesDir
     clear wlDir wlGaborDir wlTalksDir tst co
-    clear dbDir cocoDir cniDir BrainBDir PRFmodel mquestplus ophDIR retinaTOMEDir
+    clear isetonelineDir cocoDir cniDir BrainBDir PRFmodel mquestplus ophDIR retinaTOMEDir
     clear stDir stAppsDir jsonioDir curDir ii pathOptions c vlfeatDir
     
 
