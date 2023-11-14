@@ -144,7 +144,7 @@ else
             addpath(genpath(isetcamDir));
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetlensDir));
-            addpath(genpath(jsonioDir));
+            % addpath(genpath(jsonioDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
             chdir(isetbioDir);  
@@ -152,7 +152,7 @@ else
         case 'ISETBIO-WL'
             addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            addpath(genpath(jsonioDir));
+            % addpath(genpath(jsonioDir));
             addpath(genpath(wlDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(mquestplus));
@@ -162,7 +162,7 @@ else
             addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
             addpath(genpath(isetbioCSFDir));
-            addpath(genpath(jsonioDir));
+            % addpath(genpath(jsonioDir));
             addpath(genpath(wlDir));
             addpath(genpath(mquestplus));
             
@@ -171,7 +171,7 @@ else
         case 'ISETBIO-ISET3DV4-TEACH'
             addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            addpath(genpath(jsonioDir));
+            % addpath(genpath(jsonioDir));
             addpath(genpath(teachiseDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(iset3dV4Dir));
@@ -181,7 +181,7 @@ else
             % For isetcam branch of isetbio
             addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            addpath(genpath(jsonioDir));
+            % addpath(genpath(jsonioDir));
             addpath(genpath(isetbioCSFDir));
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(mquestplus));            
@@ -189,7 +189,7 @@ else
         case 'ISETBIO-LIVESCRIPT'
             addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            addpath(genpath(jsonioDir));
+            % addpath(genpath(jsonioDir));
             addpath(genpath(isetbiolivescriptDir));
             addpath(genpath(mquestplus));
             chdir(isetbioDir);
