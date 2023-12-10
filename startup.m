@@ -56,19 +56,22 @@ else
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dV3Dir    = fullfile(userpath,'isetprojects','iset3d-v3');
     iset3dV4Dir    = fullfile(userpath,'iset3d-v4');
-    % isetVistalab = fullfile(userpath,'vistalab');
-    
+
     isetautoDir           = fullfile(userpath,'isetprojects','isetauto');
-    cocoDir               = fullfile(userpath,'external','cocoapi');
-    % isetcloudDir          = fullfile(userpath,'isetcloud');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
     isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
-    % isetgDir              = fullfile(userpath,'isetg');
     mquestplus            = fullfile(userpath,'mQUESTPlus');
-    cniDir       = fullfile(userpath,'cni');
+    cniDir                = fullfile(userpath,'cni');
+
+    % Tools and external
+    cocoDir               = fullfile(userpath,'external','cocoapi');
+    ettbDir               = fullfile(userpath,'tools','ExampleTestToolbox');
 
     % We might want to specify individual sub-directories
+    % isetVistalab = fullfile(userpath,'vistalab');
+    % isetcloudDir          = fullfile(userpath,'isetcloud');
+    % isetgDir              = fullfile(userpath,'isetg');
     % wlDir        = fullfile(userpath,'LABS','WL');
     % oraleyeDir   = fullfile(userpath,'LABS','WL','oraleye');    
     %{
@@ -105,10 +108,11 @@ else
     isetonelineDir  = fullfile(userpath,'isetprojects','isetonline');
 
     %% Notify of tools always added
-    disp('Adding UTT, Scitran, isetonline')
+    disp('Adding UTT, Scitran, ExampleTestToolbox')
     addpath(genpath(unitTestDir));
-    addpath(genpath(isetonelineDir));
+    addpath(genpath(ettbDir));
     addpath(genpath(stDir));
+    % addpath(genpath(isetonelineDir));
 
     %% Additional choices, requires a user response    
     fprintf('***Path selection****\n');
@@ -371,7 +375,7 @@ else
     clear vistaDir spmDir teachmriDir knkDir examplesDir
     clear wlDir wlGaborDir wlTalksDir tst co
     clear isetonelineDir cocoDir cniDir BrainBDir PRFmodel mquestplus ophDIR retinaTOMEDir
-    clear stDir stAppsDir jsonioDir curDir ii pathOptions c vlfeatDir
+    clear stDir stAppsDir jsonioDir curDir ii pathOptions c vlfeatDir ettbDir
     
 
 end
