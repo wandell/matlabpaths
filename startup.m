@@ -104,10 +104,10 @@ else
     jsonioDir       = fullfile(userpath,'tools','JSONio');
     unitTestDir     = fullfile(userpath,'tools','UnitTestToolbox');
     psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
-    isetonlineDir   = fullfile(userpath,'isetonlind');
+    isetonlineDir   = fullfile(userpath,'isetonline');
 
     %% Notify of tools always added
-    disp('Adding UTT, Scitran, ETT,ISETOnline')
+    disp('Adding UTT, Scitran, ETT, ISETOnline')
     addpath(genpath(unitTestDir));
     addpath(genpath(stDir));
     addpath(genpath(ettbDir));
