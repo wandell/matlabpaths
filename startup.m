@@ -113,8 +113,11 @@ else
     addpath(genpath(ettbDir));
     addpath(genpath(isetonlineDir));
 
-    %% Additional choices, requires a user response    
+    %% Additional choices, requires a user response  
     fprintf('***Path selection****\n');
+
+    % Remember, we do not want ISETlens and ISETBio both on the path
+    % because there is a Lens in ISETBio and a lensC in ISETlens.
     pathOptions = {'ISETCAM-ISET3DV4',...
         'ISETCAM-ISET3DV4-TEACH',...
         'ISETCAM-ISET3DV4-ISETLENS',...
