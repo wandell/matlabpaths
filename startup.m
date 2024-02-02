@@ -111,7 +111,7 @@ else
     addpath(genpath(unitTestDir));
     addpath(genpath(stDir));
     addpath(genpath(ettbDir));
-    addpath(genpath(isetonelineDir));
+    addpath(genpath(isetonlineDir));
 
     %% Additional choices, requires a user response    
     fprintf('***Path selection****\n');
