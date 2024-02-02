@@ -59,6 +59,7 @@ else
 
     isetautoDir           = fullfile(userpath,'isetprojects','isetauto');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
+
     isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
     mquestplus            = fullfile(userpath,'mQUESTPlus');
@@ -98,21 +99,19 @@ else
     teachiseDir  = fullfile(userpath,'teach','psych221');
     
     % Utilities - Maybe scitran related should be inside of tools
-    stDir        = fullfile(userpath,'scitran');
-    stAppsDir    = fullfile(userpath,'scitranApps');
-    
-    %% CNI related
-    jsonioDir    = fullfile(userpath,'tools','JSONio');
-    unitTestDir  = fullfile(userpath,'tools','UnitTestToolbox');
+    stDir           = fullfile(userpath,'scitran');
+    stAppsDir       = fullfile(userpath,'scitranApps');    
+    jsonioDir       = fullfile(userpath,'tools','JSONio');
+    unitTestDir     = fullfile(userpath,'tools','UnitTestToolbox');
     psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
-    isetonelineDir  = fullfile(userpath,'isetprojects','isetonline');
+    isetonlineDir   = fullfile(userpath,'isetonlind');
 
     %% Notify of tools always added
-    disp('Adding UTT, Scitran, ExampleTestToolbox')
+    disp('Adding UTT, Scitran, ETT,ISETOnline')
     addpath(genpath(unitTestDir));
-    addpath(genpath(ettbDir));
     addpath(genpath(stDir));
-    % addpath(genpath(isetonelineDir));
+    addpath(genpath(ettbDir));
+    addpath(genpath(isetonelineDir));
 
     %% Additional choices, requires a user response    
     fprintf('***Path selection****\n');
