@@ -56,6 +56,7 @@ else
     isetlensDir  = fullfile(userpath,'isetlens');
     iset3dV3Dir    = fullfile(userpath,'isetprojects','iset3d-v3');
     iset3dV4Dir    = fullfile(userpath,'iset3d-v4');
+    iset3dTinyDir  = fullfile(userpath,'iset3d-tiny');
 
     isetautoDir           = fullfile(userpath,'isetprojects','isetauto');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
@@ -111,7 +112,7 @@ else
     addpath(genpath(unitTestDir));
     addpath(genpath(stDir));
     addpath(genpath(ettbDir));
-    addpath(genpath(isetonlineDir));
+    % addpath(genpath(isetonlineDir));
 
     %% Additional choices, requires a user response  
     fprintf('***Path selection****\n');
@@ -122,6 +123,7 @@ else
         'ISETCAM-ISET3DV4-TEACH',...
         'ISETCAM-ISET3DV4-ISETLENS',...
         'ISETCAM-ISET3DV4-ISETAUTO',...
+        'ISETCAM-ISET3DTiny', ...
         'ISETBIO', ...
         'ISETBIO-ISET3DV4-TEACH', ... 
         'VISTA-OPH-BB',...
@@ -236,6 +238,11 @@ else
             addpath(genpath(iset3dV4Dir));
             addpath(genpath(isetlensDir));
             chdir(iset3dV4Dir);
+
+        case 'ISETCAM-ISET3DTiny'
+            addpath(genpath(isetcamDir));
+            addpath(genpath(iset3dTinyDir));
+
         case 'ISETCAM-ISET3DV4-FLY'
             addpath(genpath(isetcamDir));
             addpath(genpath(iset3dV4Dir));
