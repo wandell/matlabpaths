@@ -1,23 +1,11 @@
 % Startup.m
 %
-%   Brian Wandell
+%  Used by Brian Wandell
+%  Should be using ToolboxToolbox, I suppose
 %
-%{
-% When using the ISET3d-v4 with a GPU we need to do something like
-% this.  These are the key/value options that we pass in piRender when
-% running with the GPU
-%
-% This sticks across Matlab sessions.  So you don't need to run it
-% every time.  This requires the 'vistalab' repository, however!
-%
-%  dockerWrapper.setParams('remoteRoot','/home/wandell');
-%  dockerWrapper.setParams('whichGPU',0);
-%  dockerWrapper.setParams('remoteUser','wandell');
-%
-%}
 
 if isdeployed
-    % Do nothing
+    % Do nothing if this is for compilation and deployment.
 else
     % Plot and root graphics defaults
     set(groot,'DefaultAxesFontsize',16)
@@ -326,22 +314,23 @@ else
             disp('Default Matlab path.')
     end
     
-    %% Add the validation directories
+    %% If ISET, add the validation directory
+
     tst = which('isetRootPath');
     if ~isempty(tst)
-        disp('Adding ISET validate.')
+        disp('Adding isetvalidate.')
         addpath(genpath(isetvalidateDir)); 
     end
 
-    %% Eliminates the .git directories from the path.
+    %% Eliminate the .git directories from the path.
     
     curDir = pwd;
     gitRemovePath;
     chdir(curDir);
-    
     fprintf('Current directory: %s\n',pwd)
-    %% Clear variables
     
+    %% Clear variables
+
     clear isetbioDir isetbiolivescriptDir isetbioCSFDir
     clear R isetcamDir wlDir iset3dV3Dir iset3dV4Dir isetvalidateDir isethyperspectral
     clear isetL3Dir isetautoDir isetcalibrateDir isetcloudDir isetfluorescenceDir
@@ -352,7 +341,7 @@ else
     clear isetonelineDir cocoDir cniDir BrainBDir PRFmodel mquestplus ophDIR retinaTOMEDir
     clear stDir stAppsDir jsonioDir curDir ii pathOptions c vlfeatDir ettbDir
     
-%{
+    %{
          case 'ISETCAM-ISET3DV3-ISETFLUOR'
             addpath(genpath(isetcamDir));
             addpath(genpath(isetfluorescenceDir));
@@ -382,7 +371,7 @@ else
             addpath(genpath(iset3dV3Dir));
             addpath(genpath(isetverseDir));
             chdir(isetverseDir);
-%}
+    %}
 
 end
 
