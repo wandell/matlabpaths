@@ -331,7 +331,7 @@ else
     
     %% Clear variables
 
-    clear isetbioDir isetbiolivescriptDir isetbioCSFDir
+    clear isetbioDir isetbiolivescriptDir isetbioCSFDir iset3dTinyDir isetonlineDir p
     clear R isetcamDir wlDir iset3dV3Dir iset3dV4Dir isetvalidateDir isethyperspectral
     clear isetL3Dir isetautoDir isetcalibrateDir isetcloudDir isetfluorescenceDir
     clear isetflywheelDir isetlensDir isetmosaicsDir
