@@ -74,6 +74,7 @@ else
     
     % Maybe this should all be inside of the MRI
     vistaDir    = fullfile(userpath,'vistasoft');
+    vistaDataDir= fullfile(userpath,'vistadata');
     PRFmodel    = fullfile(userpath,'MRI','PRFmodel');
     BrainBDir   = fullfile(userpath,'MRI','BrainBeat');
 
@@ -265,6 +266,7 @@ else
             addpath(genpath(knkDir));
             addpath(genpath(psychtoolboxDir));
             addpath(genpath(PRFmodel));
+            addpath(genpath(vistaDataDir));
             addpath(genpath(vistaDir));  % Make sure this is last
             addpath(genpath(jsonioDir));
             chdir(PRFmodel);            
@@ -273,17 +275,20 @@ else
             addpath(genpath(jsonioDir));
             addpath(genpath(spmDir));
             addpath(genpath(stAppsDir));
+            addpath(genpath(vistaDataDir));
             addpath(genpath(vistaDir));  % Make sure this is last
             chdir(vistaDir);            
         case 'VISTA-PRFmodel-SPM'
             % Scitran and Vistasoft
             addpath(genpath(spmDir));
             addpath(genpath(PRFmodel));
+            addpath(genpath(vistaDataDir));
             addpath(genpath(vistaDir));  % Make sure this is last
             addpath(genpath(jsonioDir));
             chdir(PRFmodel);            
         case 'VISTA-CNI'
             % CNI TSNR calculations.  Threw in Vista just in case.
+            addpath(genpath(vistaDataDir));
             addpath(genpath(vistaDir));
             addpath(genpath(cniDir));
             addpath(genpath(jsonioDir));
@@ -300,6 +305,7 @@ else
             % Scitran and Vistasoft
             addpath(genpath(spmDir));
             addpath(genpath(teachmriDir));
+            addpath(genpath(vistaDataDir));
             addpath(genpath(vistaDir));  % Make sure this is last
             addpath(genpath(jsonioDir));
             chdir(teachmriDir);
