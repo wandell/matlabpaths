@@ -94,6 +94,7 @@ else
     psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
     % isetonlineDir   = fullfile(userpath,'isetonline');
 
+    
     %% Notify of tools always added
     disp('Adding UTT, Scitran, ETT, ISETOnline')
 
@@ -105,6 +106,9 @@ else
 
     ettbDir = fullfile(userpath,'tools','ExampleTestToolbox');
     addpath(genpath(ettbDir));   % Example Toolbox
+
+    fiseDir         = '~/Documents/FISE-git/code';
+    addpath(genpath(fiseDir));
 
     %% Additional choices, requires a user response  
     fprintf('***Path selection****\n');
@@ -346,7 +350,8 @@ else
     clear wlDir wlGaborDir wlTalksDir tst co
     clear isetonelineDir cocoDir cniDir BrainBDir PRFmodel mquestplus ophDIR retinaTOMEDir
     clear stDir stAppsDir jsonioDir curDir ii pathOptions c vlfeatDir ettbDir
-    
+    clear fiseDir vistaDataDir
+
     %{
          case 'ISETCAM-ISET3DV3-ISETFLUOR'
             addpath(genpath(isetcamDir));
