@@ -109,6 +109,8 @@ else
 
     fiseDir         = '~/Documents/FISE-git/code';
     addpath(genpath(fiseDir));
+    fiseDir         = '~/Documents/FISE-git/matlab';
+    addpath(genpath(fiseDir));
 
     %% Additional choices, requires a user response  
     fprintf('***Path selection****\n');
