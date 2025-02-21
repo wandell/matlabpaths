@@ -47,7 +47,7 @@ else
     isetautoDir           = fullfile(userpath,'isetprojects','isetauto');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
 
-    isetfluorescenceDir   = fullfile(userpath,'isetfluorescence');
+    isetfluorescenceDir   = fullfile(userpath,'isetprojects','isetfluorescence');
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
     mquestplus            = fullfile(userpath,'mQUESTPlus');
     cniDir                = fullfile(userpath,'cni');
@@ -61,7 +61,9 @@ else
     % isetcloudDir = fullfile(userpath,'isetcloud');
     % isetgDir     = fullfile(userpath,'isetg');
     % wlDir        = fullfile(userpath,'LABS','WL');
-    % oraleyeDir   = fullfile(userpath,'LABS','WL','oraleye');   
+    oraleyeDir     = fullfile(userpath,'isetprojects','oraleye');   
+    oeTongueLipDir = fullfile(userpath,'isetprojects','oe_tongue_lip');
+
     % isetbiolivescriptDir   = fullfile(userpath,'isetbioprojects','isetbiolivescript');
     % iset3dV3Dir    = fullfile(userpath,'isetprojects','iset3d-v3');
     %{
@@ -125,7 +127,8 @@ else
         'VISTA-PRFmodel-SPM', ...
         'VISTA-CNI',...
         'VISTA-TEACH',...
-        'TEACHMRI',...         
+        'TEACHMRI',... 
+        'ISETCAM-ISETFLUOR-OE', ...
         'None'};
 
     for ii=1:length(pathOptions)
@@ -205,7 +208,8 @@ else
             addpath(genpath(isetcamDir));
             addpath(genpath(isetfluorescenceDir));
             addpath(genpath(oraleyeDir));
-            chdir(isetfluorescenceDir);
+            addpath(genpath(oeTongueLipDir));
+            chdir(oeTongueLipDir);
         case 'ISETCAM-HYPERSPECTRAL'
             addpath(genpath(isetcamDir));
             addpath(genpath(isethyperspectral));
