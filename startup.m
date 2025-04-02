@@ -11,12 +11,16 @@ else
     set(groot,'DefaultAxesFontsize',16)
     set(groot,'DefaultAxesFontName','Georgia')
 
+    % This is the setting for ieFigure
+    set(groot,'DefaultFigureUnits','normalized');
+    set(groot,'DefaultFigurePosition',[0.0070 ,0.55, 0.28 0.36]);
+
     % Color ordering
     co = [1 0 0; 0 1 0 ; 0 0 1; 1 0 1; 0 1 1; 0 0 0];
     set(groot,'defaultAxesColorOrder',co);
 
     % Line width
-    set(0,'DefaultLineLineWidth',1);
+    set(groot,'DefaultLineLineWidth',1);
     
     % Livescripts font size.
     s = settings;
