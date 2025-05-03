@@ -7,9 +7,13 @@
 if isdeployed
     % Do nothing if this is for compilation and deployment.
 else
+    reset(groot);
+
     % Plot and root graphics defaults
-    set(groot,'DefaultAxesFontsize',16)
-    set(groot,'DefaultAxesFontName','Georgia')
+    set(groot, 'DefaultAxesFontsize',16)
+    set(groot, 'DefaultAxesFontName','Georgia')
+    set(groot, 'DefaultAxesTickDir', 'out');
+    set(groot, 'DefaultAxesLineWidth', 1.2);
 
     % This is the setting for ieFigure
     set(groot,'DefaultFigureUnits','normalized');
@@ -20,7 +24,7 @@ else
     set(groot,'defaultAxesColorOrder',co);
 
     % Line width
-    set(groot,'DefaultLineLineWidth',1);
+    set(groot,'DefaultLineLineWidth',1.2);
     
     % Livescripts font size.
     s = settings;
