@@ -3,6 +3,11 @@
 %  Used by Brian Wandell
 %  Should be using ToolboxToolbox, I suppose
 %
+%  New formatting:
+%    ISETCam is now at the base of everything.  So we always add it
+%    for the ISET choices, and we do not make it explicit in the text.
+%
+%
 
 if isdeployed
     % Do nothing if this is for compilation and deployment.
@@ -41,21 +46,31 @@ else
     %
     % Should be using ToolboxToolbox, I know.
     
-    % Maybe these should all be inside of an ISET subdirectory.
+    % Any ISET tool requires this
     isetcamDir   = fullfile(userpath,'isetcam');
+
+    % Always added
     isetvalidateDir = fullfile(userpath,'isetvalidate');
 
     isetbioDir   = fullfile(userpath,'isetbio');
+    
+    % Brainard lab
     isetbioCSFDir   = fullfile(userpath,'isetbiocsf');
 
+    % Thinking about this.
     isetlensDir  = fullfile(userpath,'isetlens');
-    iset3dV4Dir    = fullfile(userpath,'iset3d-v4');
+    % iset3dV4Dir    = fullfile(userpath,'iset3d-v4');
+
+    % Will become primary
     iset3dTinyDir  = fullfile(userpath,'iset3d-tiny');
 
     isetautoDir           = fullfile(userpath,'isetprojects','isetauto');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
 
+    % Oral eye related
     isetfluorescenceDir   = fullfile(userpath,'isetprojects','isetfluorescence');
+
+    % Rare
     isethyperspectral     = fullfile(userpath,'isethyperspectral');
     mquestplus            = fullfile(userpath,'mQUESTPlus');
     cniDir                = fullfile(userpath,'cni');
@@ -71,6 +86,7 @@ else
     % wlDir        = fullfile(userpath,'LABS','WL');
     oraleyeDir     = fullfile(userpath,'isetprojects','oraleye');   
     oeTongueLipDir = fullfile(userpath,'isetprojects','oe_tongue_lip');
+    oraleyelabimagesDir = fullfile(userpath,'idm','oraleye-lab-images');
 
     % isetbiolivescriptDir   = fullfile(userpath,'isetbioprojects','isetbiolivescript');
     % iset3dV3Dir    = fullfile(userpath,'isetprojects','iset3d-v3');
@@ -106,7 +122,7 @@ else
 
     
     %% Notify of tools always added
-    disp('Adding UTT, Scitran, ETT, ISETOnline')
+    disp('Adding Unit, Scitran, Example')
 
     unitTestDir     = fullfile(userpath,'tools','UnitTestToolbox');
     addpath(genpath(unitTestDir)); % Unit test
@@ -125,18 +141,18 @@ else
     %% Additional choices, requires a user response  
     fprintf('***Path selection****\n');
 
-    pathOptions = {'ISETCAM-ISET3DTiny',...
-        'ISETCAM-TEACH',...
-        'ISETCAM-ISET3DTiny-TEACH',...
-        'ISETCAM-ISET3DTiny-ISETAUTO',...
+    pathOptions = {'ISET3DTiny',...
+        'ISET3DTiny-TEACHISE',...
+        'ISET3DTiny-ISETAUTO',...
         'ISETBIO', ...
-        'ISETBIO-ISET3DTiny-TEACH', ... 
+        'ISETBIO-ISET3DTiny', ...
+        'ISETBIO-ISET3DTiny-TEACHISE', ... 
         'VISTA-OPH-BB',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-CNI',...
-        'VISTA-TEACH',...
+        'VISTA-TEACHMRI',...
         'TEACHMRI',... 
-        'ISETCAM-ISETFLUOR-OE', ...
+        'ISETFLUOR-OE', ...
         'None'};
 
     for ii=1:length(pathOptions)
@@ -151,127 +167,70 @@ else
     switch pathOptions{R}
         %  ISETBio        
         case 'ISETBIO'
+            addpath(genpath(isetcamDir));  
             addpath(genpath(isetbioDir));
-            addpath(genpath(isetcamDir));            
-        case 'ISETBIO-WL'
-            addpath(genpath(isetbioDir));
-            addpath(genpath(isetcamDir));
-            addpath(genpath(wlDir));
-            addpath(genpath(isetbioCSFDir));
-            addpath(genpath(mquestplus));
-            chdir(isetbioDir);
-        case 'ISETBIO-WL-FLY'
-            % Putting pre-computed data into Flywheel
-            addpath(genpath(isetbioDir));
-            addpath(genpath(isetcamDir));
-            addpath(genpath(isetbioCSFDir));
-            addpath(genpath(wlDir));
-            addpath(genpath(mquestplus));            
-            addpath(genpath(isetflywheelDir));
-            chdir(isetbioDir);
-        case 'ISETBIO-ISET3DTiny-TEACH'
-            addpath(genpath(isetbioDir));
-            addpath(genpath(isetcamDir));
-            addpath(genpath(teachiseDir));
-            addpath(genpath(isetbioCSFDir));
-            addpath(genpath(iset3dTinyDir));
-            addpath(genpath(mquestplus));
             chdir(isetbioDir);
         case 'ISETBIO-ISET3DTiny'
-            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
-            addpath(genpath(isetbioCSFDir));
+            addpath(genpath(isetbioDir));
+            % addpath(genpath(isetbioCSFDir));
             addpath(genpath(iset3dTinyDir));
-            addpath(genpath(mquestplus));            
+            % addpath(genpath(mquestplus));            
             chdir(isetbioDir);
         case 'ISETBIO-ISET3DTiny-ISETLENS'
-            addpath(genpath(isetbioDir));
             addpath(genpath(isetcamDir));
+            addpath(genpath(isetbioDir));
             addpath(genpath(iset3dTinyDir));
             addpath(genpath(isetlensDir));
-            addpath(genpath(isetbioCSFDir));
-            addpath(genpath(mquestplus));
             chdir(isetbioDir);  
 
             %  ISETCam
         case 'ISETCAM'
             addpath(genpath(isetcamDir));
             chdir(isetcamDir);
-        case 'ISETCAM-TEACH'
+        case 'ISETCAM-TEACHISE'
             addpath(genpath(isetcamDir));
             addpath(genpath(teachiseDir));
             chdir(teachiseDir);
-        case 'ISETCAM-CALIBRATE-WL'
+        case 'ISETLENS'
             addpath(genpath(isetcamDir));
-            addpath(genpath(wlDir));
-            addpath(genpath(isetcalibrateDir));
-            chdir(isetcamDir);
-        case 'ISETCAM-ISETLENS'
-            addpath(genpath(isetcamDir));
+            addpath(genpath(isetlensDir));
             chdir(isetlensDir);
-        case 'ISETCAM-ISETFLUOR'
+        case 'ISETFLUOR'
             addpath(genpath(isetcamDir));
+            addpath(genpath(isetfluorescenceDir));
             chdir(isetfluorescenceDir);
-        case 'ISETCAM-ISETFLUOR-OE'
+        case 'ISETFLUOR-OE'
             addpath(genpath(isetcamDir));
             addpath(genpath(isetfluorescenceDir));
             addpath(genpath(oraleyeDir));
             addpath(genpath(oeTongueLipDir));
+            addpath(genpath(oraleyelabimagesDir))
             chdir(oeTongueLipDir);
         case 'ISETCAM-HYPERSPECTRAL'
             addpath(genpath(isetcamDir));
             addpath(genpath(isethyperspectral));
             chdir(isethyperspectral);
-        case 'ISETCAM-TEACH-ISETCAL'
+        case 'TEACHISE-ISETCAL'
             addpath(genpath(isetcamDir));
             addpath(genpath(teachiseDir));
             addpath(genpath(isetcalibrateDir));
             chdir(teachiseDir);
-        case 'ISETCAM-WL'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(wlDir));
-            chdir(isetcamDir);
 
-        case 'ISETCAM-ISET3DV4-TEACH' 
-            addpath(genpath(isetcamDir));
-            addpath(genpath(teachiseDir));
-            addpath(genpath(iset3dV4Dir));
-            chdir(teachiseDir);
-        case 'ISETCAM-ISET3DV4'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dV4Dir));
-            chdir(iset3dV4Dir);
-        case 'ISETCAM-ISET3DV4-ISETAUTO'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dV4Dir));
-            addpath(genpath(isetautoDir));
-            addpath(genpath(cocoDir));     
-            chdir(isetautoDir);    
-        case 'ISETCAM-ISET3DV4-ISETLENS'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dV4Dir));
-            addpath(genpath(isetlensDir));
-            chdir(iset3dV4Dir);
-        case 'ISETCAM-ISET3DV4-FLY'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dV4Dir));
-            addpath(genpath(isetflywheelDir));
-            chdir(isetcamDir);
-
-        case 'ISETCAM-ISET3DTiny'
+        case 'ISET3DTiny'
             addpath(genpath(isetcamDir));
             addpath(genpath(iset3dTinyDir));
-        case 'ISETCAM-ISET3DTiny-TEACH'
+        case 'ISET3DTiny-TEACHISE'
             addpath(genpath(isetcamDir));
             addpath(genpath(iset3dTinyDir));
             addpath(genpath(teachiseDir));
-        case 'ISETCAM-ISET3DTiny-ISETAUTO'
+        case 'ISET3DTiny-ISETAUTO'
             addpath(genpath(isetcamDir));
             addpath(genpath(iset3dTinyDir));
             addpath(genpath(isetautoDir));
             addpath(genpath(cocoDir));     
             chdir(isetautoDir);    
-        case 'ISETCAM-ISET3DTiny-ISETLENS'
+        case 'ISET3DTiny-ISETLENS'
             addpath(genpath(isetcamDir));
             addpath(genpath(iset3dTinyDir));
             addpath(genpath(isetlensDir));
