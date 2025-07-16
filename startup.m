@@ -324,39 +324,8 @@ else
     clear isetonelineDir cocoDir cniDir BrainBDir PRFmodel mquestplus ophDIR retinaTOMEDir
     clear stDir stAppsDir jsonioDir curDir ii pathOptions c vlfeatDir ettbDir
     clear fiseDir vistaDataDir
-
-    %{
-         case 'ISETCAM-ISET3DV3-ISETFLUOR'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(isetfluorescenceDir));
-            addpath(genpath(iset3dV3Dir));
-            chdir(isetcamDir);
-        case 'ISETCAM-ISET3DV3'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dV3Dir));
-            addpath(genpath(isetautoDir));
-            chdir(isetautoDir);
-        case 'ISETCAM-ISET3DV3-ISETAUTO'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dV3Dir));
-            addpath(genpath(isetautoDir));
-            chdir(isetautoDir);
-        case 'ISETCAM-ISET3DV3-ISETCLOUD'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(isetcloudDir));
-            addpath(genpath(iset3dV3Dir));
-            chdir(isetcamDir);
-        case 'ISETCAM-ISETG'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(isetgDir));
-            chdir(isetgDir);            
-        case 'ISETCAM-ISET3DV3-ISETVERSE'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dV3Dir));
-            addpath(genpath(isetverseDir));
-            chdir(isetverseDir);
-    %}
-
+    clear oeTongueLipDir oraleyeDir oraleyelabimagesDir
+   
 end
 
 %%
