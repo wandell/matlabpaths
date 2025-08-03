@@ -206,7 +206,7 @@ else
             addpath(genpath(oraleyeDir));
             addpath(genpath(oeTongueLipDir));
             addpath(genpath(oraleyelabimagesDir))
-            chdir(oeTongueLipDir);
+            chdir(oraleyelabimagesDir);
         case 'ISETCAM-HYPERSPECTRAL'
             addpath(genpath(isetcamDir));
             addpath(genpath(isethyperspectral));
