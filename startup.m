@@ -116,7 +116,7 @@ else
     
     % Utilities - Maybe scitran related should be inside of tools
     stAppsDir       = fullfile(userpath,'scitranApps');    
-    jsonioDir       = fullfile(userpath,'tools','JSONio');
+    jsonioDir       = fullfile(userpath,'tools','JSONio');  % Used in VISTASOFT
     psychtoolboxDir = fullfile(userpath,'tools','Psychtoolbox-3');
     % isetonlineDir   = fullfile(userpath,'isetonline');
 
