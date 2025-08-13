@@ -59,10 +59,12 @@ else
 
     % Thinking about this.
     isetlensDir  = fullfile(userpath,'isetlens');
-    % iset3dV4Dir    = fullfile(userpath,'iset3d-v4');
 
     % Will become primary
     iset3dTinyDir  = fullfile(userpath,'iset3d-tiny');
+
+    % Worked for a while.
+    iset3dv4Dir  = fullfile(userpath,'iset3d-v4');
 
     isetautoDir           = fullfile(userpath,'isetprojects','isetauto');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
@@ -153,6 +155,7 @@ else
         'VISTA-TEACHMRI',...
         'TEACHMRI',... 
         'ISETFLUOR-OE', ...
+        'ISET3dV4', ...
         'None'};
 
     for ii=1:length(pathOptions)
@@ -185,13 +188,11 @@ else
             chdir(isetbioDir);  
 
             %  ISETCam
-        case 'ISETCAM'
+        case 'ISET3dV4'
+            % Legacy ISET3d V4
             addpath(genpath(isetcamDir));
-            chdir(isetcamDir);
-        case 'ISETCAM-TEACHISE'
-            addpath(genpath(isetcamDir));
-            addpath(genpath(teachiseDir));
-            chdir(teachiseDir);
+            addpath(genpath(iset3dv4Dir));
+            chdir(piRootPath);
         case 'ISETLENS'
             addpath(genpath(isetcamDir));
             addpath(genpath(isetlensDir));
