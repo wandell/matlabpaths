@@ -279,13 +279,14 @@ else
             addpath(genpath(vlfeatDir)); % Produces warnings for det and cummax
             addpath(genpath(retinaTOMEDir)); % Produces warnings for det and cummax
             chdir(ophDIR);            
-        case 'VISTA-TEACH'
+        case 'VISTA-TEACHMRI'
             % Scitran and Vistasoft
-            addpath(genpath(spmDir));
+            % I removed SPM.
             addpath(genpath(teachmriDir));
             addpath(genpath(vistaDataDir));
             addpath(genpath(vistaDir));  % Make sure this is last
             addpath(genpath(jsonioDir));
+            % addpath(genpath(spmDir));
             chdir(teachmriDir);
             
             % Teach
