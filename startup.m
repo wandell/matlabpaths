@@ -8,8 +8,12 @@
 %    for the ISET choices, and we do not make it explicit in the text.
 %
 %
-
-if isdeployed
+% Skip interactive setup in VS Code
+if ~usejava('desktop')
+    % Set your most common default path automatically when using VS Code
+    addpath(genpath('/Users/wandell/Documents/MATLAB/vistasoft'));
+    return
+elseif isdeployed
     % Do nothing if this is for compilation and deployment.
 else
     reset(groot);
