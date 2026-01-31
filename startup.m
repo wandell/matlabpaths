@@ -65,10 +65,10 @@ else
     isetlensDir  = fullfile(userpath,'isetlens');
 
     % Will become primary
-    iset3dTinyDir  = fullfile(userpath,'iset3d-tiny');
+    iset3dDir  = fullfile(userpath,'iset3d');
 
     % Worked for a while.
-    iset3dv4Dir  = fullfile(userpath,'iset3d-v4');
+    % iset3dv4Dir  = fullfile(userpath,'iset3d-v4');
 
     isetautoDir           = fullfile(userpath,'isetprojects','isetauto');
     isetcalibrateDir      = fullfile(userpath,'isetcalibrate');
@@ -147,12 +147,12 @@ else
     %% Additional choices, requires a user response  
     fprintf('***Path selection****\n');
 
-    pathOptions = {'ISET3DTiny',...
-        'ISET3DTiny-TEACHISE',...
-        'ISET3DTiny-ISETAUTO',...
+    pathOptions = {'ISET3D',...
+        'ISET3D-TEACHISE',...
+        'ISET3D-ISETAUTO',...
         'ISETBIO', ...
-        'ISETBIO-ISET3DTiny', ...
-        'ISETBIO-ISET3DTiny-TEACHISE', ... 
+        'ISETBIO-ISET3D', ...
+        'ISETBIO-ISET3D-TEACHISE', ... 
         'VISTA-OPH-BB',...
         'VISTA-PRFmodel-SPM', ...
         'VISTA-CNI',...
@@ -177,17 +177,17 @@ else
             addpath(genpath(isetcamDir));  
             addpath(genpath(isetbioDir));
             chdir(isetbioDir);
-        case 'ISETBIO-ISET3DTiny'
+        case 'ISETBIO-ISET3D'
             addpath(genpath(isetcamDir));
             addpath(genpath(isetbioDir));
             % addpath(genpath(isetbioCSFDir));
-            addpath(genpath(iset3dTinyDir));
+            addpath(genpath(iset3dDir));
             % addpath(genpath(mquestplus));            
             chdir(isetbioDir);
-        case 'ISETBIO-ISET3DTiny-ISETLENS'
+        case 'ISETBIO-ISET3D-ISETLENS'
             addpath(genpath(isetcamDir));
             addpath(genpath(isetbioDir));
-            addpath(genpath(iset3dTinyDir));
+            addpath(genpath(iset3dDir));
             addpath(genpath(isetlensDir));
             chdir(isetbioDir);  
 
@@ -222,24 +222,24 @@ else
             addpath(genpath(isetcalibrateDir));
             chdir(teachiseDir);
 
-        case 'ISET3DTiny'
+        case 'ISET3D'
             addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dTinyDir));
-        case 'ISET3DTiny-TEACHISE'
+            addpath(genpath(iset3dDir));
+        case 'ISET3D-TEACHISE'
             addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dTinyDir));
+            addpath(genpath(iset3dDir));
             addpath(genpath(teachiseDir));
-        case 'ISET3DTiny-ISETAUTO'
+        case 'ISET3D-ISETAUTO'
             addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dTinyDir));
+            addpath(genpath(iset3dDir));
             addpath(genpath(isetautoDir));
             addpath(genpath(cocoDir));     
             chdir(isetautoDir);    
-        case 'ISET3DTiny-ISETLENS'
+        case 'ISET3D-ISETLENS'
             addpath(genpath(isetcamDir));
-            addpath(genpath(iset3dTinyDir));
+            addpath(genpath(iset3dDir));
             addpath(genpath(isetlensDir));
-            chdir(iset3dTinyDir);
+            chdir(iset3dDir);
 
             %  Vista
         case 'VISTA-SPM-PRFmodel-KNK-PTB'
@@ -320,7 +320,7 @@ else
     
     %% Clear variables
 
-    clear isetbioDir isetbiolivescriptDir isetbioCSFDir iset3dTinyDir isetonlineDir p
+    clear isetbioDir isetbiolivescriptDir isetbioCSFDir iset3dDir isetonlineDir p
     clear R isetcamDir wlDir iset3dV3Dir iset3dV4Dir isetvalidateDir isethyperspectral
     clear isetL3Dir isetautoDir isetcalibrateDir isetcloudDir isetfluorescenceDir
     clear isetflywheelDir isetlensDir isetmosaicsDir
