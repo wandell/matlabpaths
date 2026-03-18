@@ -13,12 +13,15 @@
 % the VSCODE_PID env var is set (new extension behavior launches with desktop).
 isVSCode = ~usejava('desktop') || ~isempty(getenv('VSCODE_PID')) || ~isempty(getenv('VSCODE_IPC_HOOK_CLI'));
 if isVSCode
+    disp('Set up your path manually for this project.')
+    %{
     % Add paths needed for oraleye / fluorescence work in VS Code
     addpath(genpath('/Users/wandell/Documents/MATLAB/isetcam'));
     addpath(genpath('/Users/wandell/Documents/MATLAB/isetprojects/isetfluorescence'));
     addpath(genpath('/Users/wandell/Documents/MATLAB/isetprojects/oraleye'));
     addpath(genpath('/Users/wandell/Documents/MATLAB/isetprojects/oe_tongue_lip'));
     addpath(genpath('/Users/wandell/Documents/MATLAB/idm/oraleye-lab-images'));
+    %}
     % Share engine so the VS Code extension can connect
     matlab.engine.shareEngine;
     return
