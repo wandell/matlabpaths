@@ -40,8 +40,9 @@ else
     % Call the main startup routine and pass a flag indicating environment
     % startup_vscode should accept an optional input 'isVSCode' (true/false)
     try
-        startup_vscode;
+        fname = fullfile(getenv('HOME'),'Documents','MATLAB','matlabpaths','startup_vscode');
+        run(fname);
     catch ME
-        warning('startup_vscode failed: %s', ME.message);
+        warning(ME.identifier,'startup_vscode failed: %s', ME.message);
     end
 end

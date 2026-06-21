@@ -48,7 +48,7 @@ if ~isShadowed
         restoredefaultpath;
         savepath;
     catch ME
-        warning('restoredefaultpath failed: %s', ME.message);
+        warning(ME.identifier,'restoredefaultpath failed: %s', ME.message);
     end
 else
     warning('Skipping restoredefaultpath because MATLAB Language Server shadow is on path.');
@@ -114,14 +114,14 @@ psychtoolboxDir   = fullfile(userBaseDir, 'tools', 'Psychtoolbox-3');
 %% Notify of tools always added
 disp('Adding Unit, Scitran, Example');
 
-unitTestDir = fullfile(userBaseDir, 'tools', 'UnitTestToolbox');
-if isfolder(unitTestDir), addpath(genpath(unitTestDir)); end
+% unitTestDir = fullfile(userBaseDir, 'tools', 'UnitTestToolbox');
+% if isfolder(unitTestDir), addpath(genpath(unitTestDir)); end
 
-stDir = fullfile(userBaseDir, 'scitran');
-if isfolder(stDir), addpath(genpath(stDir)); end
+% stDir = fullfile(userBaseDir, 'scitran');
+% if isfolder(stDir), addpath(genpath(stDir)); end
 
-ettbDir = fullfile(userBaseDir, 'tools', 'ExampleTestToolbox');
-if isfolder(ettbDir), addpath(genpath(ettbDir)); end
+% ettbDir = fullfile(userBaseDir, 'tools', 'ExampleTestToolbox');
+% if isfolder(ettbDir), addpath(genpath(ettbDir)); end
 
 % Local FISE dirs (allow use of ~)
 fiseDir1 = expandUser('~/Documents/FISE-git/code');
@@ -292,12 +292,13 @@ switch pathOptions{R}
 end
 
 %% If ISET is present, add validation directory
+%{
 tst = which('isetRootPath');
 if ~isempty(tst)
     disp('Adding isetvalidate.');
     addpath(genpath(isetvalidateDir));
 end
-
+%}
 %% Eliminate .git directories from path (assumes gitRemovePath is on path)
 curDir = pwd;
 try
