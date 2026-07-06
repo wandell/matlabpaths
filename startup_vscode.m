@@ -76,7 +76,6 @@ isetbioDir   = fullfile(workspaceBaseDir, 'isetbio');
 if ~isfolder(isetbioDir), isetbioDir = fullfile(userBaseDir, 'isetbio'); end
 
 isetbioCSFDir   = fullfile(userBaseDir, 'isetbiocsf');
-isetlensDir     = fullfile(userBaseDir, 'isetlens');
 iset3dDir       = fullfile(userBaseDir, 'iset3d');
 
 isetautoDir     = fullfile(userBaseDir, 'isetprojects', 'isetauto');
@@ -172,21 +171,9 @@ switch pathOptions{R}
         addpath(genpath(iset3dDir));
         chdir(isetbioDir);
 
-    case 'ISETBIO-ISET3D-ISETLENS'
-        addpath(genpath(isetcamDir));
-        addpath(genpath(isetbioDir));
-        addpath(genpath(iset3dDir));
-        addpath(genpath(isetlensDir));
-        chdir(isetbioDir);
-
     case 'ISET3dV4'
         addpath(genpath(isetcamDir));
         % addpath(genpath(iset3dv4Dir)); % adapt if you maintain this
-
-    case 'ISETLENS'
-        addpath(genpath(isetcamDir));
-        addpath(genpath(isetlensDir));
-        chdir(isetlensDir);
 
     case 'ISETFLUOR'
         addpath(genpath(isetcamDir));
@@ -227,12 +214,6 @@ switch pathOptions{R}
         addpath(genpath(isetautoDir));
         addpath(genpath(cocoDir));
         chdir(isetautoDir);
-
-    case 'ISET3D-ISETLENS'
-        addpath(genpath(isetcamDir));
-        addpath(genpath(iset3dDir));
-        addpath(genpath(isetlensDir));
-        chdir(iset3dDir);
 
     case 'VISTA-SPM-PRFmodel-KNK-PTB'
         addpath(genpath(spmDir));
