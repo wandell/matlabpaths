@@ -12,8 +12,15 @@ set(groot, 'DefaultAxesFontName', 'Georgia');
 set(groot, 'DefaultAxesTickDir', 'out');
 set(groot, 'DefaultAxesLineWidth', 1.2);
 
-set(groot, 'DefaultFigureUnits', 'normalized');
-set(groot, 'DefaultFigurePosition', [0.0070, 0.55, 0.28, 0.36]);
+% Use pixels (not normalized) for the default figure position: uifigure
+% (matlab.ui.Figure, unified with figure() in recent MATLAB releases)
+% mis-scales a normalized DefaultFigurePosition into an enormous window
+% instead of respecting it, which can hang/crash MATLAB Desktop. Pixels
+% avoids that: classic figure() gets the same placement as before, and
+% uifigure falls back safely to its own built-in default.
+set(groot, 'DefaultFigureUnits', 'pixels');
+ss = get(0, 'ScreenSize');
+set(groot, 'DefaultFigurePosition', [0.0070, 0.55, 0.28, 0.36] .* ss([3 4 3 4]));
 
 co = [1 0 0; 0 1 0; 0 0 1; 1 0 1; 0 1 1; 0 0 0];
 set(groot, 'defaultAxesColorOrder', co);
